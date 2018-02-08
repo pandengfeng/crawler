@@ -4,17 +4,23 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-
+import logging
 import json
 from qidianSpider.items import BookDetailInfo
 from qidianSpider.items import BookTags
-
+import sys
 class QidianspiderPipeline(object):
     def __init__(self):
         self.file = open('data.json', 'w', encoding='utf-8')
     def process_item(self, item, spider):
-        line = json.dumps(dict(item), ensure_ascii=False) + "\n"
-        self.file.write(line)
+	"""
+        if isinstance(item, BookDetailInfo):
+            try:
+                line = json.dumps(dict(item), ensure_ascii=False) + "\n"
+                self.file.write(line)
+            except Exception:
+                pass
+    """ 
         return item
     def open_spider(self, spider):
         pass
@@ -28,7 +34,7 @@ class MySQLStorePipeline(object):
     connection = None
 
     def __init__(self):
-        #self.file = open('data.json', 'w', encoding='utf-8')
+        self.file = open('data.json', 'w', encoding='utf-8')
         self.connection = pymysql.connect(host='localhost',
                                  user='root',
                                  password='123456',
@@ -54,29 +60,28 @@ class MySQLStorePipeline(object):
     
     
     def insert_into_table_BookDetailInfo(self,item):
-        
-        try:
+
             with self.connection.cursor() as cursor:
                 # Create a new record
                 sql = """
-                    INSERT INTO `qidian_book_detail_info` 
-                    (`book_id`, 
-                    `book_name`,
-                    `book_author`,
-                    `book_words_number`
-                    ) VALUES (%s,%s,%s,%s)
+                    INSERT INTO `qidian_book_detail_info`
+                    (book_id,book_name,book_author,book_words_number
+                    ,book_click_quantity,book_recommend_number,book_monthly_ticket_number,book_support_number
+                    ,book_introduction,book_chapter_number,book_discuss_number,book_near_update_time,book_page_url) 
+                    VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                    """
                 cursor.execute(sql, (
-                    item['book_id'],
-                    item['book_name'],
-                    item['book_author'],
-                    item['book_words_number'])
-                )
-        except (RuntimeError, TypeError, NameError):
-            print()
-            self.connection.rollback()
-    
-    
+                    item['book_id'],item['book_name'],item['book_author'],item['book_words_number']
+                    ,item['book_click_quantity'],item['book_recommend_number']
+                    ,item['book_monthly_ticket_number']
+                    ,item['book_support_number']
+                    ,item['book_introduction']
+                    ,item['book_chapter_number']
+                    ,item['book_discuss_number']
+                    ,item['book_near_update_time']
+                    ,item['book_page_url']
+                ))
+
     def insert_into_table_BookTags(self,item):
         
         try:

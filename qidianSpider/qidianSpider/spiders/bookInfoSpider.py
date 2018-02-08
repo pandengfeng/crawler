@@ -4,7 +4,7 @@ Created on 2018年2月6日
 @author: Administrator
 '''
 import scrapy
-#import logging
+import logging
 from qidianSpider.items import BookDetailInfo
 from qidianSpider.items import BookTags
 #import time  
@@ -25,7 +25,7 @@ class bookInfoSpider(scrapy.Spider):
            function main(splash, args)
               splash.images_enabled = false
               assert(splash:go(args.url))
-              assert(splash:wait(0.5))
+              assert(splash:wait(5))
               return {
                 html = splash:html(),
               }
@@ -110,15 +110,17 @@ class bookInfoSpider(scrapy.Spider):
         data_sum_num =   book_info_detail_element.xpath(".//em//text()").extract() 
 
         #字数
-        bookDetailInfo['book_words_number'] = data_sum_num[0] * 10000
+        bookDetailInfo['book_words_number'] = data_sum_num[0]
         #点击量
-        bookDetailInfo['book_click_quantity'] = data_sum_num[1] * 10000
+        bookDetailInfo['book_click_quantity'] = data_sum_num[1]
         #推荐数
         bookDetailInfo['book_recommend_number'] = data_sum_num[2]
         #月票数
         bookDetailInfo['book_monthly_ticket_number'] = response.xpath("//i[@id='monthCount']//text()").extract_first()
         #如果没有 置 0
         if(bookDetailInfo['book_monthly_ticket_number']):
+            pass
+        else: 
             bookDetailInfo['book_monthly_ticket_number'] = 0
         #打赏数
         bookDetailInfo['book_support_number'] = response.xpath("//i[@id='rewardNum']//text()").extract_first()
@@ -140,7 +142,7 @@ class bookInfoSpider(scrapy.Spider):
             #格式化时间
             update_time = update_time.strftime("%Y-%m-%d %H:%M:%S") 
         else:
-            update_time = str_time       
+            update_time = response.xpath("//em[@class='time']//text()").extract_first()    
         #最近更新时间
         bookDetailInfo['book_near_update_time'] = update_time
         
@@ -156,7 +158,7 @@ class bookInfoSpider(scrapy.Spider):
         if book_discuss_number:
             bookDetailInfo['book_discuss_number'] = book_discuss_number[1:-2]
         else:
-            bookDetailInfo['book_chapter_number'] = 0
+            bookDetailInfo['book_discuss_number'] = 0
         yield bookDetailInfo 
         
         

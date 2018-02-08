@@ -73,7 +73,7 @@ SPLASH_URL = 'http://192.168.99.100:8050'
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    #'qidianSpider.pipelines.QidianspiderPipeline': 300,
+    'qidianSpider.pipelines.QidianspiderPipeline': 300,
     'qidianSpider.pipelines.MySQLStorePipeline': 301,
     
 }
