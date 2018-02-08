@@ -1,0 +1,1992 @@
+2018-02-08 17:02:02 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-02-08 17:02:02 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy_splash.SplashCookiesMiddleware',
+ 'scrapy_splash.SplashMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-02-08 17:02:02 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy_splash.SplashDeduplicateArgsMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-02-08 17:02:02 [scrapy.middleware] INFO: Enabled item pipelines:
+['qidianSpider.pipelines.MySQLStorePipeline']
+2018-02-08 17:02:02 [scrapy.core.engine] INFO: Spider opened
+2018-02-08 17:02:02 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-02-08 17:02:02 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-02-08 17:02:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.qidian.com/robots.txt> (referer: None)
+2018-02-08 17:02:03 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://192.168.99.100:8050/robots.txt> (referer: None)
+2018-02-08 17:02:09 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:09 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://book.qidian.com/robots.txt> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_author': '圣骑士的传说',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362241',
+ 'book_chapter_number': '1761',
+ 'book_click_quantity': '1187.94',
+ 'book_discuss_number': '443247',
+ 'book_id': '3602691',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '某天，宋书航意外加入了一个仙侠中二病资深患者的交流群，里面的群友们都以‘道友’相称，群名片都是各种府主、洞主、真人、天师。连群主走失的宠物犬都称为大妖犬离家出走。整天聊的是炼丹、闯秘境、炼功经验啥的。\u3000\u3000'
+                      '突然有一天，潜水良久的他突然发现……群里每一个群员，竟然全部是修真者，能移山倒海、长生千年的那种！\u3000\u3000'
+                      '啊啊啊啊，世界观在一夜间彻底崩碎啦！\u3000\u3000'
+                      '书友群：九洲1号群:207572656\u3000\u3000'
+                      '九洲２号群:168114177\u3000\u3000九洲一号群（VIP书友群，需验证）63769632\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '12463',
+ 'book_name': '修真聊天群',
+ 'book_near_update_time': '2018-02-08 17:02:15',
+ 'book_page_url': 'https://book.qidian.com/info/3602691',
+ 'book_recommend_number': '689.16',
+ 'book_support_number': '424',
+ 'book_words_number': '526.78'}
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '连载'}
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '签约'}
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': 'VIP'}
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '都市'}
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '异术超能'}
+2018-02-08 17:02:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '二次元'}
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_author': '唐家三少',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4921',
+ 'book_chapter_number': '1589',
+ 'book_click_quantity': '920.27',
+ 'book_discuss_number': '485737',
+ 'book_id': '3681560',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '伴随着魂导科技的进步，斗罗大陆上的人类征服了海洋，又发现了两片大陆。魂兽也随着人类魂师的猎杀无度走向灭亡，沉睡无数年的魂兽之王在星斗大森林最后的净土苏醒，它要带领仅存的族人，向人类复仇！\u3000\u3000'
+                      '唐舞麟立志要成为一名强大的魂师，可当武魂觉醒时，苏醒的，却是……\u3000\u3000'
+                      '旷世之才，龙王之争，我们的龙王传说，将由此开始。\u3000\u3000\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '4572',
+ 'book_name': '斗罗大陆III龙王传说',
+ 'book_near_update_time': '2018-02-08 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/3681560',
+ 'book_recommend_number': '798.74',
+ 'book_support_number': '37',
+ 'book_words_number': '397.96'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '玄幻'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '异世大陆'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_author': '孑与2',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362112',
+ 'book_chapter_number': '438',
+ 'book_click_quantity': '749.43',
+ 'book_discuss_number': '105305',
+ 'book_id': '1010136878',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '我们接受了祖先的遗产，这让中华辉煌了数千年，我们是如此的心安理得，从未想过要回归那个在刀耕火种中苦苦寻找出路的时代。反哺我们苦难的祖先，并从中找到故乡的真正意义，将是本书要讲的故事。\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '9234',
+ 'book_name': '汉乡',
+ 'book_near_update_time': '2018-02-08 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/1010136878',
+ 'book_recommend_number': '315.45',
+ 'book_support_number': '178',
+ 'book_words_number': '114.23'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '历史'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '架空历史'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_author': '宅猪',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362125',
+ 'book_chapter_number': '524',
+ 'book_click_quantity': '937.51',
+ 'book_discuss_number': '123430',
+ 'book_id': '1009704712',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '大墟的祖训说，天黑，别出门。\u3000\u3000'
+                      '大墟残老村的老弱病残们从江边捡到了一个婴儿，取名秦牧，含辛茹苦将他养大。这一天夜幕降临，黑暗笼罩大墟，秦牧走出了家门……\u3000\u3000'
+                      '做个春风中荡漾的反派吧！\u3000\u3000瞎子对他说。\u3000\u3000'
+                      '秦牧的反派之路，正在崛起！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '11031',
+ 'book_name': '牧神记',
+ 'book_near_update_time': '2018-02-08 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/1009704712',
+ 'book_recommend_number': '468.22',
+ 'book_support_number': '155',
+ 'book_words_number': '156.01'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '玄幻'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '东方玄幻'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_author': '会说话的肘子',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=5175790',
+ 'book_chapter_number': '575',
+ 'book_click_quantity': '1321.46',
+ 'book_discuss_number': '199633',
+ 'book_id': '1010191960',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '灵气复苏的时代，寂静生活碎掉了，仿佛雷霆贯穿长空，电光直射天心，雨沙沙地落下。\u3000\u3000'
+                      '凡逆我们的终将死去，这就是法则。\u3000\u3000……\u3000\u3000'
+                      '这是一个吕树依靠毒鸡汤成为大魔王的故事。\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '24800',
+ 'book_name': '大王饶命',
+ 'book_near_update_time': '2018-02-07 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/1010191960',
+ 'book_recommend_number': '273.73',
+ 'book_support_number': '654',
+ 'book_words_number': '117.4'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_author': '滚开',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=2660272',
+ 'book_chapter_number': '692',
+ 'book_click_quantity': '376.45',
+ 'book_discuss_number': '127468',
+ 'book_id': '1005401501',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '妖魔横行，世人苦难。神兵魔刃，遮耀天下。\u3000\u3000'
+                      '手机上的一款游戏修改器，意外成了路胜脑海里的异能。\u3000\u3000'
+                      '也成了他在这个黑暗乱世唯一的依靠。\u3000\u3000~~~~~~~\u3000\u3000'
+                      '欢迎加入企鹅群滚开书友群，群号码：331453690\u3000\u3000V群号码：231786531\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '3330',
+ 'book_name': '极道天魔',
+ 'book_near_update_time': '2018-02-08 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/1005401501',
+ 'book_recommend_number': '272.23',
+ 'book_support_number': '99',
+ 'book_words_number': '221.91'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_author': '横扫天涯',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362968',
+ 'book_chapter_number': '1033',
+ 'book_click_quantity': '675.32',
+ 'book_discuss_number': '252613',
+ 'book_id': '1004179514',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '【2017最火玄幻作品，海外点推双榜第一】张悬穿越异界，成了一名光荣的教师，脑海中多出了一个神秘的图书馆。\u3000\u3000'
+                      '只要他看过的东西，无论人还是物，都能自动形成书籍，记录下对方各种各样的缺点，于是，他牛大了！\u3000\u3000'
+                      '教学生、收徒弟，开堂授课，调教最强者，传授天下。\u3000\u3000'
+                      '“灼阳大帝，你怎么不喜欢穿内裤啊？堂堂大帝，能不能注意点形象？”\u3000\u3000'
+                      '“玲珑仙子，你如果晚上再失眠，可以找我嘛，我这个人唱安眠曲很有一套的！”\u3000\u3000'
+                      '“还有你，乾坤魔君，能不能少吃点大葱，想把老子熏死吗？”\u3000\u3000'
+                      '这是一个师道传承，培养、指点世界最强者的牛逼拉风故事。\u3000\u3000'
+                      '已有完本《拳皇异界纵横》、《八神庵》、《无尽丹田》等书，质量保证，可入坑！\u3000\u3000\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '8343',
+ 'book_name': '天道图书馆',
+ 'book_near_update_time': '2018-02-08 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/1004179514',
+ 'book_recommend_number': '394.6',
+ 'book_support_number': '123',
+ 'book_words_number': '307.87'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '都市'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '都市生活'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '二次元'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '仙侠'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '修真文明'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '玄幻'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '异世大陆'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_author': '远瞳',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362948',
+ 'book_chapter_number': '1744',
+ 'book_click_quantity': '567.62',
+ 'book_discuss_number': '351619',
+ 'book_id': '3242304',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '郝仁，人如其名，是个好人，理想是平平安安过一辈子，当个穷不死但也发不了财的小房东——起码在他家里住进去一堆神经病生物之前是这样。\u3000\u3000'
+                      '一栋偏僻陈旧的大屋，一堆不怎么正常的人外生物，还有一份来自“神明”的劳动合同，三要素加起来让郝仁成为这个世界上最忙碌的房东和最高能的保姆，最混乱、最奇怪、最不正常的房客房东的故事就此开始。\u3000\u3000'
+                      '“自打在劳动合同上摁手印那天起，我就知道自己是上贼船了……”\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '5210',
+ 'book_name': '异常生物见闻录',
+ 'book_near_update_time': '2018-02-08 17:02:16',
+ 'book_page_url': 'https://book.qidian.com/info/3242304',
+ 'book_recommend_number': '521.91',
+ 'book_support_number': '271',
+ 'book_words_number': '514.28'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '连载'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '签约'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': 'VIP'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '科幻'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '时空穿梭'}
+2018-02-08 17:02:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '二次元'}
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_author': '风凌天下',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362475',
+ 'book_chapter_number': '528',
+ 'book_click_quantity': '613.64',
+ 'book_discuss_number': '89204',
+ 'book_id': '1005986994',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '药不成丹只是毒，人不成神终成灰。\u3000\u3000…………\u3000\u3000'
+                      '天道有缺，人间不平，红尘世外，魍魉横行；哀尔良善，怒尔不争；规则之外，吾来执行。\u3000\u3000'
+                      '布武天下，屠尽不平；手中有刀，心中有情；怀中美人，刀下奸雄；冷眼红尘，无憾今生。\u3000\u3000'
+                      '……\u3000\u3000'
+                      '惊天智谋，踏破国仇家恨；铁骨柔肠，演绎爱恨情仇；绝世神功，屠尽人间不平；丹心碧血，谱写兄弟千秋！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '3507',
+ 'book_name': '我是至尊',
+ 'book_near_update_time': '2018-02-07 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/1005986994',
+ 'book_recommend_number': '436.83',
+ 'book_support_number': '100',
+ 'book_words_number': '166.97'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '玄幻'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '东方玄幻'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_author': '争斤论两花花帽',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=1030909',
+ 'book_chapter_number': '1024',
+ 'book_click_quantity': '553.1',
+ 'book_discuss_number': '251039',
+ 'book_id': '1003541158',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '一觉醒来，回到70年代，再次面对过往，你猜不透的结局..........\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '6382',
+ 'book_name': '我的1979',
+ 'book_near_update_time': '2018-02-07 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/1003541158',
+ 'book_recommend_number': '414.3',
+ 'book_support_number': '228',
+ 'book_words_number': '248.76'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '都市'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '都市生活'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '现实'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_author': '寒门',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=5373514',
+ 'book_chapter_number': '855',
+ 'book_click_quantity': '744.25',
+ 'book_discuss_number': '82729',
+ 'book_id': '1009915605',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '“粑粑！”\u3000\u3000'
+                      '刚穿越到平行世界，就看到有个精致可爱的小女孩喊自己爸爸，杨轶表示有些懵逼。\u3000\u3000'
+                      '好吧，曦曦是百分之百的亲女儿，而孩子她妈居然是高冷绝美的过气歌后。\u3000\u3000'
+                      '这乐子闹大咯！问题也接踵而至。\u3000\u3000'
+                      '怎么哄娃？前世是孤胆杀手的杨轶挠破了头。\u3000\u3000'
+                      '要不讲点故事？杨轶没有想到，他搬运过来的故事火遍全球！\u3000\u3000'
+                      '怎么样把被自己气走的孩子她妈追回来？\u3000\u3000'
+                      '有了经验的杨轶表示，没有一首情歌解决不了的问题，如果有，那就两首！\u3000\u3000'
+                      '许多年后，杨轶叹息：其实我只是想开一个贩卖情怀的咖啡店，安安静静地做一个文艺美男子。\u3000\u3000'
+                      '粉丝们大惊：岳父，别闹，我们还等着我们家媳妇儿出演的《那个杀手不太冷》呢！\u3000\u3000'
+                      '什么？竟敢打我们家曦曦的主意，杨轶怒拔龙刃：竜神の剣を喰らえ！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '2996',
+ 'book_name': '奶爸的文艺人生',
+ 'book_near_update_time': '2018-02-08 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/1009915605',
+ 'book_recommend_number': '150.58',
+ 'book_support_number': '101',
+ 'book_words_number': '203.63'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_author': '骷髅精灵',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362443',
+ 'book_chapter_number': '897',
+ 'book_click_quantity': '1218.63',
+ 'book_discuss_number': '249566',
+ 'book_id': '1003694333',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '双月当空，无限可能的英魂世界 \u3000\u3000孤寂黑暗，神秘古怪的嬉命小丑 \u3000\u3000'
+                      '百城联邦，三大帝国，异族横行，魂兽霸幽 \u3000\u3000'
+                      '这是一个英雄辈出的年代，人类卧薪尝胆重掌地球主权，孕育着进军高纬度的野望！ \u3000\u3000'
+                      '重点是……二年级的废柴学长王同学，如何使用嬉命轮盘，撬动整个世界，学妹们，请注意，学长来了！！！ \u3000\u3000'
+                      '斗战一群：21222419（两千人战力群）\u3000\u3000'
+                      '斗战二群：12962047 \u3000\u3000'
+                      '骷髅的微信公共号：kuloujingling00 \u3000\u3000新浪微博：骷髅精灵\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '6217',
+ 'book_name': '斗战狂潮',
+ 'book_near_update_time': '2018-02-08 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/1003694333',
+ 'book_recommend_number': '1836.43',
+ 'book_support_number': '12',
+ 'book_words_number': '249'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '都市'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '娱乐明星'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '二次元'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '仙侠'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '修真文明'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_author': '老鹰吃小鸡',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=3228548',
+ 'book_chapter_number': '1555',
+ 'book_click_quantity': '427.59',
+ 'book_discuss_number': '78009',
+ 'book_id': '1003580078',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '当重生成为一种潮流，李东也幸运地赶上了重生的马车。\u3000\u3000'
+                      '上辈子遗憾太多，这辈子且让他一一弥补！\u3000\u3000'
+                      '看小人物重回2004，亲情爱情双丰收，发家致富两不误！\u3000\u3000'
+                      '（读者群:250605308，全订群号:572213998需验证）\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '3447',
+ 'book_name': '重生之财源滚滚',
+ 'book_near_update_time': '2018-02-08 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/1003580078',
+ 'book_recommend_number': '112.66',
+ 'book_support_number': '74',
+ 'book_words_number': '581.7'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_author': '鹅是老五',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=2342811',
+ 'book_chapter_number': '1254',
+ 'book_click_quantity': '739.23',
+ 'book_discuss_number': '647381',
+ 'book_id': '1003307568',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '在这里，拥有灵根才能修仙，所有凡根注定只是凡人。\u3000\u3000莫无忌，只有凡根，一介凡人！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '366',
+ 'book_name': '不朽凡人',
+ 'book_near_update_time': '2017-12-31 12:43:11',
+ 'book_page_url': 'https://book.qidian.com/info/1003307568',
+ 'book_recommend_number': '883.6',
+ 'book_support_number': '4',
+ 'book_words_number': '368.58'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_author': '步征',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=3070004',
+ 'book_chapter_number': '1660',
+ 'book_click_quantity': '830.57',
+ 'book_discuss_number': '188173',
+ 'book_id': '2510964',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '都市修仙至尊爽文！渡劫期大修士凌云魂穿都市，仙武同修，丹药、炼器，画符，布阵无所不能，以无敌之姿逆天崛起，脚踩八方！\u3000\u3000\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '717',
+ 'book_name': '龙皇武神',
+ 'book_near_update_time': '2018-02-08 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/2510964',
+ 'book_recommend_number': '644.91',
+ 'book_support_number': '2',
+ 'book_words_number': '531.43'}
+2018-02-08 17:02:22 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '都市'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '都市生活'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '仙侠'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '幻想修仙'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '都市'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '异术超能'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_author': '迪巴拉爵士',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=8859030',
+ 'book_chapter_number': '1884',
+ 'book_click_quantity': '599.18',
+ 'book_discuss_number': '117392',
+ 'book_id': '1004185492',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '方醒穿了，带着两个仓库穿了！\u3000\u3000'
+                      '别人穿越是带着王霸之气，方醒却是只想种田！\u3000\u3000'
+                      '“我只想在这个时代悠闲的活着！”\u3000\u3000'
+                      '坐拥大别墅，顺便教几个弟子，努力让他们往上爬，好给自己当靠山！\u3000\u3000'
+                      '可谁想弟子有些不靠谱，居然是......\u3000\u3000全订QQ群：聚宝山千户所 '
+                      '540705836，欢迎订阅本书的书友进入。\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '5801',
+ 'book_name': '带着仓库到大明',
+ 'book_near_update_time': '2018-02-08 17:02:22',
+ 'book_page_url': 'https://book.qidian.com/info/1004185492',
+ 'book_recommend_number': '171.54',
+ 'book_support_number': '141',
+ 'book_words_number': '409.31'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '连载'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '签约'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': 'VIP'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '历史'}
+2018-02-08 17:02:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '两宋元明'}
+2018-02-08 17:02:27 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:27 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:27 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_author': '我吃西红柿',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362096',
+ 'book_chapter_number': '272',
+ 'book_click_quantity': '1373.59',
+ 'book_discuss_number': '199363',
+ 'book_id': '1010468795',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '在这个世界，有狐仙、河神、水怪、大妖，也有求长生的修行者。\u3000\u3000'
+                      '修行者们，\u3000\u3000开法眼，可看妖魔鬼怪。\u3000\u3000'
+                      '炼一口飞剑，可千里杀敌。\u3000\u3000千里眼、顺风耳，更可探查四方。\u3000\u3000'
+                      '……\u3000\u3000秦府二公子‘秦云’，便是一位修行者……\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '16502',
+ 'book_name': '飞剑问道',
+ 'book_near_update_time': '2018-02-08 17:02:27',
+ 'book_page_url': 'https://book.qidian.com/info/1010468795',
+ 'book_recommend_number': '830.7',
+ 'book_support_number': '169',
+ 'book_words_number': '73.5'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '连载'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '签约'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': 'VIP'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '仙侠'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '古典仙侠'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_author': '耳根',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362120',
+ 'book_chapter_number': '1316',
+ 'book_click_quantity': '1786.5',
+ 'book_discuss_number': '1130486',
+ 'book_id': '1003354631',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '一念成沧海，一念化桑田。一念斩千魔，一念诛万仙。\u3000\u3000唯我念……永恒\u3000\u3000'
+                      '这是耳根继《仙逆》《求魔》《我欲封天》后，创作的第四部长篇小说《一念永恒》\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '7647',
+ 'book_name': '一念永恒',
+ 'book_near_update_time': '2018-02-08 17:02:27',
+ 'book_page_url': 'https://book.qidian.com/info/1003354631',
+ 'book_recommend_number': '1675.93',
+ 'book_support_number': '163',
+ 'book_words_number': '368.15'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '连载'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '签约'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': 'VIP'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '仙侠'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '幻想修仙'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_author': '乱',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4224572',
+ 'book_chapter_number': '2120',
+ 'book_click_quantity': '384.94',
+ 'book_discuss_number': '142140',
+ 'book_id': '3489766',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '一觉醒来，世界大变。\u3000\u3000'
+                      '熟悉的高中传授的是魔法，告诉大家要成为一名出色的魔法师。\u3000\u3000'
+                      '居住的都市之外游荡着袭击人类的魔物妖兽，虎视眈眈。\u3000\u3000'
+                      '崇尚科学的世界变成了崇尚魔法，偏偏有着一样以学渣看待自己的老师，一样目光异样的同学，一样社会底层挣扎的爸爸，一样纯美却不能走路的非血缘妹妹……\u3000\u3000'
+                      '不过，莫凡发现绝大多数人都只能够主修一系魔法，自己却是全系全能法师！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '1849',
+ 'book_name': '全职法师',
+ 'book_near_update_time': '2018-02-07 17:02:27',
+ 'book_page_url': 'https://book.qidian.com/info/3489766',
+ 'book_recommend_number': '187.52',
+ 'book_support_number': '49',
+ 'book_words_number': '500.28'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '连载'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '签约'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': 'VIP'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '玄幻'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '异世大陆'}
+2018-02-08 17:02:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '二次元'}
+2018-02-08 17:02:28 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:02:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_author': '辰东',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362453',
+ 'book_chapter_number': '931',
+ 'book_click_quantity': '1950.07',
+ 'book_discuss_number': '894956',
+ 'book_id': '1004608738',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '在破败中崛起，在寂灭中复苏。\u3000\u3000'
+                      '沧海成尘，雷电枯竭，那一缕幽雾又一次临近大地，世间的枷锁被打开了，一个全新的世界就此揭开神秘的一角……\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '15627',
+ 'book_name': '圣墟',
+ 'book_near_update_time': '2018-02-08 17:02:28',
+ 'book_page_url': 'https://book.qidian.com/info/1004608738',
+ 'book_recommend_number': '1913.86',
+ 'book_support_number': '417',
+ 'book_words_number': '334.22'}
+2018-02-08 17:02:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '连载'}
+2018-02-08 17:02:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '签约'}
+2018-02-08 17:02:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': 'VIP'}
+2018-02-08 17:02:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '玄幻'}
+2018-02-08 17:02:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '东方玄幻'}
+2018-02-08 17:02:28 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-02-08 17:02:28 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-02-08 17:02:28 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-02-08 17:02:28 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-02-08 17:02:28 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2018-02-08 17:02:28 [scrapy.core.engine] INFO: Spider opened
+2018-02-08 17:02:28 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-02-08 17:02:28 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6024
+2018-02-08 17:02:28 [scrapy.core.engine] ERROR: Scraper close failure
+Traceback (most recent call last):
+  File "c:\users\administrator\appdata\local\programs\python\python36\lib\site-packages\twisted\internet\defer.py", line 653, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "C:\Users\Administrator\Desktop\workspaceReal\firstPython\qidianSpider\qidianSpider\pipelines.py", line 113, in close_spider
+    process.start()
+  File "c:\users\administrator\appdata\local\programs\python\python36\lib\site-packages\scrapy\crawler.py", line 291, in start
+    reactor.run(installSignalHandlers=False)  # blocking call
+  File "c:\users\administrator\appdata\local\programs\python\python36\lib\site-packages\twisted\internet\base.py", line 1242, in run
+    self.startRunning(installSignalHandlers=installSignalHandlers)
+  File "c:\users\administrator\appdata\local\programs\python\python36\lib\site-packages\twisted\internet\base.py", line 1222, in startRunning
+    ReactorBase.startRunning(self)
+  File "c:\users\administrator\appdata\local\programs\python\python36\lib\site-packages\twisted\internet\base.py", line 728, in startRunning
+    raise error.ReactorAlreadyRunning()
+twisted.internet.error.ReactorAlreadyRunning
+2018-02-08 17:02:28 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 19619,
+ 'downloader/request_count': 24,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/request_method_count/POST': 21,
+ 'downloader/response_bytes': 12556433,
+ 'downloader/response_count': 24,
+ 'downloader/response_status_count/200': 22,
+ 'downloader/response_status_count/404': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 2, 8, 9, 2, 28, 718004),
+ 'item_scraped_count': 126,
+ 'log_count/DEBUG': 152,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 16,
+ 'request_depth_max': 1,
+ 'response_received_count': 24,
+ 'scheduler/dequeued': 42,
+ 'scheduler/dequeued/memory': 42,
+ 'scheduler/enqueued': 42,
+ 'scheduler/enqueued/memory': 42,
+ 'splash/execute/request_count': 21,
+ 'splash/execute/response_count/200': 21,
+ 'start_time': datetime.datetime(2018, 2, 8, 9, 2, 2, 901004)}
+2018-02-08 17:02:28 [scrapy.core.engine] INFO: Spider closed (finished)
+2018-02-08 17:02:28 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2018-02-08 17:02:28 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://my.qidian.com/author/2342811> from <GET https://me.qidian.com/authorIndex.aspx?id=2342811>
+2018-02-08 17:02:28 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://my.qidian.com/author/4362120> from <GET https://me.qidian.com/authorIndex.aspx?id=4362120>
+2018-02-08 17:02:28 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 478,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 602,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/302': 2,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2018, 2, 8, 9, 2, 28, 811504),
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 9,
+ 'scheduler/dequeued': 2,
+ 'scheduler/dequeued/memory': 2,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2018, 2, 8, 9, 2, 28, 715504)}
+2018-02-08 17:02:28 [scrapy.core.engine] INFO: Spider closed (shutdown)
+2018-02-08 17:04:41 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-02-08 17:04:41 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy_splash.SplashCookiesMiddleware',
+ 'scrapy_splash.SplashMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-02-08 17:04:41 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy_splash.SplashDeduplicateArgsMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-02-08 17:04:41 [scrapy.middleware] INFO: Enabled item pipelines:
+['qidianSpider.pipelines.MySQLStorePipeline']
+2018-02-08 17:04:41 [scrapy.core.engine] INFO: Spider opened
+2018-02-08 17:04:41 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-02-08 17:04:41 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-02-08 17:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.qidian.com/robots.txt> (referer: None)
+2018-02-08 17:04:41 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://192.168.99.100:8050/robots.txt> (referer: None)
+2018-02-08 17:04:46 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:47 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://book.qidian.com/robots.txt> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_author': '我吃西红柿',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362096',
+ 'book_chapter_number': '272',
+ 'book_click_quantity': '1373.72',
+ 'book_discuss_number': '199364',
+ 'book_id': '1010468795',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '在这个世界，有狐仙、河神、水怪、大妖，也有求长生的修行者。\u3000\u3000'
+                      '修行者们，\u3000\u3000开法眼，可看妖魔鬼怪。\u3000\u3000'
+                      '炼一口飞剑，可千里杀敌。\u3000\u3000千里眼、顺风耳，更可探查四方。\u3000\u3000'
+                      '……\u3000\u3000秦府二公子‘秦云’，便是一位修行者……\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '16502',
+ 'book_name': '飞剑问道',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/1010468795',
+ 'book_recommend_number': '830.7',
+ 'book_support_number': '169',
+ 'book_words_number': '73.5'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '仙侠'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010468795>
+{'book_id': '1010468795', 'book_tag': '古典仙侠'}
+2018-02-08 17:04:53 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_author': '宅猪',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362125',
+ 'book_chapter_number': '524',
+ 'book_click_quantity': '937.51',
+ 'book_discuss_number': '123431',
+ 'book_id': '1009704712',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '大墟的祖训说，天黑，别出门。\u3000\u3000'
+                      '大墟残老村的老弱病残们从江边捡到了一个婴儿，取名秦牧，含辛茹苦将他养大。这一天夜幕降临，黑暗笼罩大墟，秦牧走出了家门……\u3000\u3000'
+                      '做个春风中荡漾的反派吧！\u3000\u3000瞎子对他说。\u3000\u3000'
+                      '秦牧的反派之路，正在崛起！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '11031',
+ 'book_name': '牧神记',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/1009704712',
+ 'book_recommend_number': '468.23',
+ 'book_support_number': '155',
+ 'book_words_number': '156.01'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_author': '孑与2',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362112',
+ 'book_chapter_number': '438',
+ 'book_click_quantity': '749.43',
+ 'book_discuss_number': '105307',
+ 'book_id': '1010136878',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '我们接受了祖先的遗产，这让中华辉煌了数千年，我们是如此的心安理得，从未想过要回归那个在刀耕火种中苦苦寻找出路的时代。反哺我们苦难的祖先，并从中找到故乡的真正意义，将是本书要讲的故事。\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '9234',
+ 'book_name': '汉乡',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/1010136878',
+ 'book_recommend_number': '315.45',
+ 'book_support_number': '178',
+ 'book_words_number': '114.23'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_author': '会说话的肘子',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=5175790',
+ 'book_chapter_number': '575',
+ 'book_click_quantity': '1321.46',
+ 'book_discuss_number': '199635',
+ 'book_id': '1010191960',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '灵气复苏的时代，寂静生活碎掉了，仿佛雷霆贯穿长空，电光直射天心，雨沙沙地落下。\u3000\u3000'
+                      '凡逆我们的终将死去，这就是法则。\u3000\u3000……\u3000\u3000'
+                      '这是一个吕树依靠毒鸡汤成为大魔王的故事。\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '24800',
+ 'book_name': '大王饶命',
+ 'book_near_update_time': '2018-02-07 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/1010191960',
+ 'book_recommend_number': '273.73',
+ 'book_support_number': '654',
+ 'book_words_number': '117.4'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_author': '远瞳',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362948',
+ 'book_chapter_number': '1744',
+ 'book_click_quantity': '567.62',
+ 'book_discuss_number': '351619',
+ 'book_id': '3242304',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '郝仁，人如其名，是个好人，理想是平平安安过一辈子，当个穷不死但也发不了财的小房东——起码在他家里住进去一堆神经病生物之前是这样。\u3000\u3000'
+                      '一栋偏僻陈旧的大屋，一堆不怎么正常的人外生物，还有一份来自“神明”的劳动合同，三要素加起来让郝仁成为这个世界上最忙碌的房东和最高能的保姆，最混乱、最奇怪、最不正常的房客房东的故事就此开始。\u3000\u3000'
+                      '“自打在劳动合同上摁手印那天起，我就知道自己是上贼船了……”\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '5210',
+ 'book_name': '异常生物见闻录',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/3242304',
+ 'book_recommend_number': '521.91',
+ 'book_support_number': '271',
+ 'book_words_number': '514.28'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_author': '横扫天涯',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362968',
+ 'book_chapter_number': '1033',
+ 'book_click_quantity': '675.32',
+ 'book_discuss_number': '252613',
+ 'book_id': '1004179514',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '【2017最火玄幻作品，海外点推双榜第一】张悬穿越异界，成了一名光荣的教师，脑海中多出了一个神秘的图书馆。\u3000\u3000'
+                      '只要他看过的东西，无论人还是物，都能自动形成书籍，记录下对方各种各样的缺点，于是，他牛大了！\u3000\u3000'
+                      '教学生、收徒弟，开堂授课，调教最强者，传授天下。\u3000\u3000'
+                      '“灼阳大帝，你怎么不喜欢穿内裤啊？堂堂大帝，能不能注意点形象？”\u3000\u3000'
+                      '“玲珑仙子，你如果晚上再失眠，可以找我嘛，我这个人唱安眠曲很有一套的！”\u3000\u3000'
+                      '“还有你，乾坤魔君，能不能少吃点大葱，想把老子熏死吗？”\u3000\u3000'
+                      '这是一个师道传承，培养、指点世界最强者的牛逼拉风故事。\u3000\u3000'
+                      '已有完本《拳皇异界纵横》、《八神庵》、《无尽丹田》等书，质量保证，可入坑！\u3000\u3000\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '8343',
+ 'book_name': '天道图书馆',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/1004179514',
+ 'book_recommend_number': '394.6',
+ 'book_support_number': '123',
+ 'book_words_number': '307.87'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '玄幻'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009704712>
+{'book_id': '1009704712', 'book_tag': '东方玄幻'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '历史'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010136878>
+{'book_id': '1010136878', 'book_tag': '架空历史'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '都市'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '都市生活'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1010191960>
+{'book_id': '1010191960', 'book_tag': '二次元'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_author': '圣骑士的传说',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362241',
+ 'book_chapter_number': '1761',
+ 'book_click_quantity': '1187.97',
+ 'book_discuss_number': '443247',
+ 'book_id': '3602691',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '某天，宋书航意外加入了一个仙侠中二病资深患者的交流群，里面的群友们都以‘道友’相称，群名片都是各种府主、洞主、真人、天师。连群主走失的宠物犬都称为大妖犬离家出走。整天聊的是炼丹、闯秘境、炼功经验啥的。\u3000\u3000'
+                      '突然有一天，潜水良久的他突然发现……群里每一个群员，竟然全部是修真者，能移山倒海、长生千年的那种！\u3000\u3000'
+                      '啊啊啊啊，世界观在一夜间彻底崩碎啦！\u3000\u3000'
+                      '书友群：九洲1号群:207572656\u3000\u3000'
+                      '九洲２号群:168114177\u3000\u3000九洲一号群（VIP书友群，需验证）63769632\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '12463',
+ 'book_name': '修真聊天群',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/3602691',
+ 'book_recommend_number': '689.18',
+ 'book_support_number': '427',
+ 'book_words_number': '526.78'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '科幻'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '时空穿梭'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3242304>
+{'book_id': '3242304', 'book_tag': '二次元'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '玄幻'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004179514>
+{'book_id': '1004179514', 'book_tag': '异世大陆'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '都市'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '异术超能'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3602691>
+{'book_id': '3602691', 'book_tag': '二次元'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_author': '唐家三少',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4921',
+ 'book_chapter_number': '1589',
+ 'book_click_quantity': '920.27',
+ 'book_discuss_number': '485737',
+ 'book_id': '3681560',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '伴随着魂导科技的进步，斗罗大陆上的人类征服了海洋，又发现了两片大陆。魂兽也随着人类魂师的猎杀无度走向灭亡，沉睡无数年的魂兽之王在星斗大森林最后的净土苏醒，它要带领仅存的族人，向人类复仇！\u3000\u3000'
+                      '唐舞麟立志要成为一名强大的魂师，可当武魂觉醒时，苏醒的，却是……\u3000\u3000'
+                      '旷世之才，龙王之争，我们的龙王传说，将由此开始。\u3000\u3000\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '4572',
+ 'book_name': '斗罗大陆III龙王传说',
+ 'book_near_update_time': '2018-02-08 17:04:53',
+ 'book_page_url': 'https://book.qidian.com/info/3681560',
+ 'book_recommend_number': '798.74',
+ 'book_support_number': '37',
+ 'book_words_number': '397.96'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '连载'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '签约'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': 'VIP'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '玄幻'}
+2018-02-08 17:04:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3681560>
+{'book_id': '3681560', 'book_tag': '异世大陆'}
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_author': '滚开',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=2660272',
+ 'book_chapter_number': '692',
+ 'book_click_quantity': '376.45',
+ 'book_discuss_number': 0,
+ 'book_id': '1005401501',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '妖魔横行，世人苦难。神兵魔刃，遮耀天下。\u3000\u3000'
+                      '手机上的一款游戏修改器，意外成了路胜脑海里的异能。\u3000\u3000'
+                      '也成了他在这个黑暗乱世唯一的依靠。\u3000\u3000~~~~~~~\u3000\u3000'
+                      '欢迎加入企鹅群滚开书友群，群号码：331453690\u3000\u3000V群号码：231786531\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '3330',
+ 'book_name': '极道天魔',
+ 'book_near_update_time': '2018-02-08 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/1005401501',
+ 'book_recommend_number': '272.23',
+ 'book_support_number': '99',
+ 'book_words_number': '221.91'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '仙侠'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005401501>
+{'book_id': '1005401501', 'book_tag': '修真文明'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_author': '争斤论两花花帽',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=1030909',
+ 'book_chapter_number': '1024',
+ 'book_click_quantity': '553.1',
+ 'book_discuss_number': '251040',
+ 'book_id': '1003541158',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '一觉醒来，回到70年代，再次面对过往，你猜不透的结局..........\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '6382',
+ 'book_name': '我的1979',
+ 'book_near_update_time': '2018-02-07 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/1003541158',
+ 'book_recommend_number': '414.3',
+ 'book_support_number': '228',
+ 'book_words_number': '248.76'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '都市'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '都市生活'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003541158>
+{'book_id': '1003541158', 'book_tag': '现实'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_author': '老鹰吃小鸡',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=3228548',
+ 'book_chapter_number': '1555',
+ 'book_click_quantity': '427.59',
+ 'book_discuss_number': '78009',
+ 'book_id': '1003580078',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '当重生成为一种潮流，李东也幸运地赶上了重生的马车。\u3000\u3000'
+                      '上辈子遗憾太多，这辈子且让他一一弥补！\u3000\u3000'
+                      '看小人物重回2004，亲情爱情双丰收，发家致富两不误！\u3000\u3000'
+                      '（读者群:250605308，全订群号:572213998需验证）\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '3447',
+ 'book_name': '重生之财源滚滚',
+ 'book_near_update_time': '2018-02-08 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/1003580078',
+ 'book_recommend_number': '112.66',
+ 'book_support_number': '74',
+ 'book_words_number': '581.7'}
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '都市'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003580078>
+{'book_id': '1003580078', 'book_tag': '都市生活'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_author': '迪巴拉爵士',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=8859030',
+ 'book_chapter_number': '1884',
+ 'book_click_quantity': '599.18',
+ 'book_discuss_number': '117392',
+ 'book_id': '1004185492',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '方醒穿了，带着两个仓库穿了！\u3000\u3000'
+                      '别人穿越是带着王霸之气，方醒却是只想种田！\u3000\u3000'
+                      '“我只想在这个时代悠闲的活着！”\u3000\u3000'
+                      '坐拥大别墅，顺便教几个弟子，努力让他们往上爬，好给自己当靠山！\u3000\u3000'
+                      '可谁想弟子有些不靠谱，居然是......\u3000\u3000全订QQ群：聚宝山千户所 '
+                      '540705836，欢迎订阅本书的书友进入。\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '5801',
+ 'book_name': '带着仓库到大明',
+ 'book_near_update_time': '2018-02-08 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/1004185492',
+ 'book_recommend_number': '171.54',
+ 'book_support_number': '141',
+ 'book_words_number': '409.31'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_author': '鹅是老五',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=2342811',
+ 'book_chapter_number': '1254',
+ 'book_click_quantity': '739.23',
+ 'book_discuss_number': '647382',
+ 'book_id': '1003307568',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '在这里，拥有灵根才能修仙，所有凡根注定只是凡人。\u3000\u3000莫无忌，只有凡根，一介凡人！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '366',
+ 'book_name': '不朽凡人',
+ 'book_near_update_time': '2017-12-31 12:43:11',
+ 'book_page_url': 'https://book.qidian.com/info/1003307568',
+ 'book_recommend_number': '883.6',
+ 'book_support_number': '4',
+ 'book_words_number': '368.58'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_author': '步征',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=3070004',
+ 'book_chapter_number': '1660',
+ 'book_click_quantity': '830.57',
+ 'book_discuss_number': '188173',
+ 'book_id': '2510964',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '都市修仙至尊爽文！渡劫期大修士凌云魂穿都市，仙武同修，丹药、炼器，画符，布阵无所不能，以无敌之姿逆天崛起，脚踩八方！\u3000\u3000\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '717',
+ 'book_name': '龙皇武神',
+ 'book_near_update_time': '2018-02-08 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/2510964',
+ 'book_recommend_number': '644.91',
+ 'book_support_number': '2',
+ 'book_words_number': '531.43'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '历史'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004185492>
+{'book_id': '1004185492', 'book_tag': '两宋元明'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '仙侠'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003307568>
+{'book_id': '1003307568', 'book_tag': '幻想修仙'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '都市'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/2510964>
+{'book_id': '2510964', 'book_tag': '异术超能'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_author': '寒门',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=5373514',
+ 'book_chapter_number': '855',
+ 'book_click_quantity': '744.3',
+ 'book_discuss_number': '82729',
+ 'book_id': '1009915605',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '“粑粑！”\u3000\u3000'
+                      '刚穿越到平行世界，就看到有个精致可爱的小女孩喊自己爸爸，杨轶表示有些懵逼。\u3000\u3000'
+                      '好吧，曦曦是百分之百的亲女儿，而孩子她妈居然是高冷绝美的过气歌后。\u3000\u3000'
+                      '这乐子闹大咯！问题也接踵而至。\u3000\u3000'
+                      '怎么哄娃？前世是孤胆杀手的杨轶挠破了头。\u3000\u3000'
+                      '要不讲点故事？杨轶没有想到，他搬运过来的故事火遍全球！\u3000\u3000'
+                      '怎么样把被自己气走的孩子她妈追回来？\u3000\u3000'
+                      '有了经验的杨轶表示，没有一首情歌解决不了的问题，如果有，那就两首！\u3000\u3000'
+                      '许多年后，杨轶叹息：其实我只是想开一个贩卖情怀的咖啡店，安安静静地做一个文艺美男子。\u3000\u3000'
+                      '粉丝们大惊：岳父，别闹，我们还等着我们家媳妇儿出演的《那个杀手不太冷》呢！\u3000\u3000'
+                      '什么？竟敢打我们家曦曦的主意，杨轶怒拔龙刃：竜神の剣を喰らえ！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '2996',
+ 'book_name': '奶爸的文艺人生',
+ 'book_near_update_time': '2018-02-08 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/1009915605',
+ 'book_recommend_number': '150.58',
+ 'book_support_number': '101',
+ 'book_words_number': '203.63'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '都市'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '娱乐明星'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1009915605>
+{'book_id': '1009915605', 'book_tag': '二次元'}
+2018-02-08 17:04:59 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_author': '风凌天下',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362475',
+ 'book_chapter_number': '528',
+ 'book_click_quantity': '613.64',
+ 'book_discuss_number': '89205',
+ 'book_id': '1005986994',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '药不成丹只是毒，人不成神终成灰。\u3000\u3000…………\u3000\u3000'
+                      '天道有缺，人间不平，红尘世外，魍魉横行；哀尔良善，怒尔不争；规则之外，吾来执行。\u3000\u3000'
+                      '布武天下，屠尽不平；手中有刀，心中有情；怀中美人，刀下奸雄；冷眼红尘，无憾今生。\u3000\u3000'
+                      '……\u3000\u3000'
+                      '惊天智谋，踏破国仇家恨；铁骨柔肠，演绎爱恨情仇；绝世神功，屠尽人间不平；丹心碧血，谱写兄弟千秋！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '3507',
+ 'book_name': '我是至尊',
+ 'book_near_update_time': '2018-02-07 17:04:59',
+ 'book_page_url': 'https://book.qidian.com/info/1005986994',
+ 'book_recommend_number': '436.83',
+ 'book_support_number': '100',
+ 'book_words_number': '166.97'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '连载'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '签约'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': 'VIP'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '玄幻'}
+2018-02-08 17:04:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1005986994>
+{'book_id': '1005986994', 'book_tag': '东方玄幻'}
+2018-02-08 17:05:04 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:04 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_author': '乱',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4224572',
+ 'book_chapter_number': '2120',
+ 'book_click_quantity': '384.94',
+ 'book_discuss_number': '142140',
+ 'book_id': '3489766',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '一觉醒来，世界大变。\u3000\u3000'
+                      '熟悉的高中传授的是魔法，告诉大家要成为一名出色的魔法师。\u3000\u3000'
+                      '居住的都市之外游荡着袭击人类的魔物妖兽，虎视眈眈。\u3000\u3000'
+                      '崇尚科学的世界变成了崇尚魔法，偏偏有着一样以学渣看待自己的老师，一样目光异样的同学，一样社会底层挣扎的爸爸，一样纯美却不能走路的非血缘妹妹……\u3000\u3000'
+                      '不过，莫凡发现绝大多数人都只能够主修一系魔法，自己却是全系全能法师！\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '1849',
+ 'book_name': '全职法师',
+ 'book_near_update_time': '2018-02-07 17:05:04',
+ 'book_page_url': 'https://book.qidian.com/info/3489766',
+ 'book_recommend_number': '187.52',
+ 'book_support_number': '49',
+ 'book_words_number': '500.28'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '连载'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '签约'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': 'VIP'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '玄幻'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '异世大陆'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/3489766>
+{'book_id': '3489766', 'book_tag': '二次元'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_author': '耳根',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362120',
+ 'book_chapter_number': '1316',
+ 'book_click_quantity': '1786.5',
+ 'book_discuss_number': '1130487',
+ 'book_id': '1003354631',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '一念成沧海，一念化桑田。一念斩千魔，一念诛万仙。\u3000\u3000唯我念……永恒\u3000\u3000'
+                      '这是耳根继《仙逆》《求魔》《我欲封天》后，创作的第四部长篇小说《一念永恒》\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '7647',
+ 'book_name': '一念永恒',
+ 'book_near_update_time': '2018-02-08 17:05:04',
+ 'book_page_url': 'https://book.qidian.com/info/1003354631',
+ 'book_recommend_number': '1675.93',
+ 'book_support_number': '163',
+ 'book_words_number': '368.15'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '连载'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '签约'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': 'VIP'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '仙侠'}
+2018-02-08 17:05:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003354631>
+{'book_id': '1003354631', 'book_tag': '幻想修仙'}
+2018-02-08 17:05:05 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_author': '辰东',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362453',
+ 'book_chapter_number': '931',
+ 'book_click_quantity': '1950.07',
+ 'book_discuss_number': '894957',
+ 'book_id': '1004608738',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '在破败中崛起，在寂灭中复苏。\u3000\u3000'
+                      '沧海成尘，雷电枯竭，那一缕幽雾又一次临近大地，世间的枷锁被打开了，一个全新的世界就此揭开神秘的一角……\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '15627',
+ 'book_name': '圣墟',
+ 'book_near_update_time': '2018-02-08 17:05:05',
+ 'book_page_url': 'https://book.qidian.com/info/1004608738',
+ 'book_recommend_number': '1913.86',
+ 'book_support_number': '417',
+ 'book_words_number': '334.22'}
+2018-02-08 17:05:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '连载'}
+2018-02-08 17:05:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '签约'}
+2018-02-08 17:05:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': 'VIP'}
+2018-02-08 17:05:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '玄幻'}
+2018-02-08 17:05:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1004608738>
+{'book_id': '1004608738', 'book_tag': '东方玄幻'}
+2018-02-08 17:05:07 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_author': '骷髅精灵',
+ 'book_author_url': 'https://me.qidian.com/authorIndex.aspx?id=4362443',
+ 'book_chapter_number': '897',
+ 'book_click_quantity': '1218.63',
+ 'book_discuss_number': '249569',
+ 'book_id': '1003694333',
+ 'book_introduction': '\n'
+                      '                            \n'
+                      '                                \u3000\u3000'
+                      '双月当空，无限可能的英魂世界 \u3000\u3000孤寂黑暗，神秘古怪的嬉命小丑 \u3000\u3000'
+                      '百城联邦，三大帝国，异族横行，魂兽霸幽 \u3000\u3000'
+                      '这是一个英雄辈出的年代，人类卧薪尝胆重掌地球主权，孕育着进军高纬度的野望！ \u3000\u3000'
+                      '重点是……二年级的废柴学长王同学，如何使用嬉命轮盘，撬动整个世界，学妹们，请注意，学长来了！！！ \u3000\u3000'
+                      '斗战一群：21222419（两千人战力群）\u3000\u3000'
+                      '斗战二群：12962047 \u3000\u3000'
+                      '骷髅的微信公共号：kuloujingling00 \u3000\u3000新浪微博：骷髅精灵\n'
+                      '                            \n'
+                      '                        ',
+ 'book_monthly_ticket_number': '6217',
+ 'book_name': '斗战狂潮',
+ 'book_near_update_time': '2018-02-08 17:05:07',
+ 'book_page_url': 'https://book.qidian.com/info/1003694333',
+ 'book_recommend_number': '1836.43',
+ 'book_support_number': '12',
+ 'book_words_number': '249'}
+2018-02-08 17:05:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '连载'}
+2018-02-08 17:05:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '签约'}
+2018-02-08 17:05:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': 'VIP'}
+2018-02-08 17:05:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '仙侠'}
+2018-02-08 17:05:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.qidian.com/info/1003694333>
+{'book_id': '1003694333', 'book_tag': '修真文明'}
+2018-02-08 17:05:07 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-02-08 17:05:07 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 19619,
+ 'downloader/request_count': 24,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/request_method_count/POST': 21,
+ 'downloader/response_bytes': 14102993,
+ 'downloader/response_count': 24,
+ 'downloader/response_status_count/200': 22,
+ 'downloader/response_status_count/404': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 2, 8, 9, 5, 7, 570004),
+ 'item_scraped_count': 126,
+ 'log_count/DEBUG': 151,
+ 'log_count/INFO': 7,
+ 'request_depth_max': 1,
+ 'response_received_count': 24,
+ 'scheduler/dequeued': 42,
+ 'scheduler/dequeued/memory': 42,
+ 'scheduler/enqueued': 42,
+ 'scheduler/enqueued/memory': 42,
+ 'splash/execute/request_count': 21,
+ 'splash/execute/response_count/200': 21,
+ 'start_time': datetime.datetime(2018, 2, 8, 9, 4, 41, 478504)}
+2018-02-08 17:05:07 [scrapy.core.engine] INFO: Spider closed (finished)
+2018-02-08 17:05:24 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-02-08 17:05:25 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy_splash.SplashCookiesMiddleware',
+ 'scrapy_splash.SplashMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-02-08 17:05:25 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy_splash.SplashDeduplicateArgsMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-02-08 17:05:25 [scrapy.middleware] INFO: Enabled item pipelines:
+['qidianSpider.pipelines.MySQLStorePipeline']
+2018-02-08 17:05:25 [scrapy.core.engine] INFO: Spider opened
+2018-02-08 17:05:25 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-02-08 17:05:25 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-02-08 17:05:25 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://my.qidian.com> from <GET https://me.qidian.com/robots.txt>
+2018-02-08 17:05:25 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://passport.qidian.com?appid=10&areaid=1&auto=1&autotime=30&version=1.0&ticket=1&target=top&popup=0&source=pc&returnurl=https%3A%2F%2Fmy.qidian.com> from <GET https://my.qidian.com>
+2018-02-08 17:05:25 [scrapy.core.engine] DEBUG: Crawled (400) <GET https://passport.qidian.com?appid=10&areaid=1&auto=1&autotime=30&version=1.0&ticket=1&target=top&popup=0&source=pc&returnurl=https%3A%2F%2Fmy.qidian.com> (referer: None)
+2018-02-08 17:05:25 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://192.168.99.100:8050/robots.txt> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362112>
+{'book_author': '孑与2',
+ 'book_author_address': '默认',
+ 'book_author_books': '4',
+ 'book_author_id': '4362112',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '1876',
+ 'book_author_write_num': '1183.55'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=5373514>
+{'book_author': '寒门',
+ 'book_author_address': '默认',
+ 'book_author_books': '3',
+ 'book_author_id': '5373514',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '1043',
+ 'book_author_write_num': '620.93'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362475>
+{'book_author': '风凌天下',
+ 'book_author_address': '默认',
+ 'book_author_books': '5',
+ 'book_author_id': '4362475',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '2903',
+ 'book_author_write_num': '2157.74'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362096>
+{'book_author': '我吃西红柿',
+ 'book_author_address': '默认',
+ 'book_author_books': '9',
+ 'book_author_id': '4362096',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '3842',
+ 'book_author_write_num': '2491.28'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362453>
+{'book_author': '辰东',
+ 'book_author_address': '默认',
+ 'book_author_books': '6',
+ 'book_author_id': '4362453',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '3973',
+ 'book_author_write_num': '2288.86'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362125>
+{'book_author': '宅猪',
+ 'book_author_address': '默认',
+ 'book_author_books': '7',
+ 'book_author_id': '4362125',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '2615',
+ 'book_author_write_num': '1757.21'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=2660272>
+{'book_author': '滚开',
+ 'book_author_address': '默认',
+ 'book_author_books': '5',
+ 'book_author_id': '2660272',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '2107',
+ 'book_author_write_num': '1326.68'}
+2018-02-08 17:05:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=5175790>
+{'book_author': '会说话的肘子',
+ 'book_author_address': '默认',
+ 'book_author_books': '3',
+ 'book_author_id': '5175790',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '685',
+ 'book_author_write_num': '428.50'}
+2018-02-08 17:05:31 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://my.qidian.com/robots.txt> (referer: None)
+2018-02-08 17:05:35 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:35 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:35 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:35 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=3070004>
+{'book_author': '步征',
+ 'book_author_address': '默认',
+ 'book_author_books': '1',
+ 'book_author_id': '3070004',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '838',
+ 'book_author_write_num': '531.44'}
+2018-02-08 17:05:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=8859030>
+{'book_author': '迪巴拉爵士',
+ 'book_author_address': '默认',
+ 'book_author_books': '1',
+ 'book_author_id': '8859030',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '485',
+ 'book_author_write_num': '409.07'}
+2018-02-08 17:05:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=1030909>
+{'book_author': '争斤论两花花帽',
+ 'book_author_address': '默认',
+ 'book_author_books': '1',
+ 'book_author_id': '1030909',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '617',
+ 'book_author_write_num': '248.76'}
+2018-02-08 17:05:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=3228548>
+{'book_author': '老鹰吃小鸡',
+ 'book_author_address': '默认',
+ 'book_author_books': '1',
+ 'book_author_id': '3228548',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '1093',
+ 'book_author_write_num': '581.71'}
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=2342811>
+{'book_author': '鹅是老五',
+ 'book_author_address': '默认',
+ 'book_author_books': '5',
+ 'book_author_id': '2342811',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '2416',
+ 'book_author_write_num': '1780.41'}
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362968>
+{'book_author': '横扫天涯',
+ 'book_author_address': '默认',
+ 'book_author_books': '6',
+ 'book_author_id': '4362968',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '2165',
+ 'book_author_write_num': '1194.11'}
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362120>
+{'book_author': '耳根',
+ 'book_author_address': '默认',
+ 'book_author_books': '6',
+ 'book_author_id': '4362120',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '3002',
+ 'book_author_write_num': '2062.74'}
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362443>
+{'book_author': '骷髅精灵',
+ 'book_author_address': '默认',
+ 'book_author_books': '9',
+ 'book_author_id': '4362443',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '4124',
+ 'book_author_write_num': '2047.18'}
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/20448952>
+{'book_author': '宅猪',
+ 'book_author_address': '安徽－合肥',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362125',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/119538682>
+{'book_author': '剑道真解',
+ 'book_author_address': '贵州－遵义',
+ 'book_author_books': '默认',
+ 'book_author_id': '2660272',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/782300>
+{'book_author': '辰东',
+ 'book_author_address': '北京－朝阳',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362453',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/214294650>
+{'book_author': '会说话的肘子',
+ 'book_author_address': '河南－洛阳',
+ 'book_author_books': '默认',
+ 'book_author_id': '5175790',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362948>
+{'book_author': '远瞳',
+ 'book_author_address': '默认',
+ 'book_author_books': '2',
+ 'book_author_id': '4362948',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '2870',
+ 'book_author_write_num': '1319.32'}
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4224572>
+{'book_author': '乱',
+ 'book_author_address': '默认',
+ 'book_author_books': '2',
+ 'book_author_id': '4224572',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '1576',
+ 'book_author_write_num': '864.13'}
+2018-02-08 17:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4362241>
+{'book_author': '圣骑士的传说',
+ 'book_author_address': '默认',
+ 'book_author_books': '4',
+ 'book_author_id': '4362241',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '1991',
+ 'book_author_write_num': '1053.92'}
+2018-02-08 17:05:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://me.qidian.com/authorIndex.aspx?id=4921>
+{'book_author': '唐家三少',
+ 'book_author_address': '默认',
+ 'book_author_books': '16',
+ 'book_author_id': '4921',
+ 'book_author_sex': '默认',
+ 'book_author_write_days': '4637',
+ 'book_author_write_num': '3667.16'}
+2018-02-08 17:05:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/103018904>
+{'book_author': '风凌天下.',
+ 'book_author_address': '',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362475',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/115773560>
+{'book_author': '孑与',
+ 'book_author_address': '甘肃－白银',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362112',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/202252601>
+{'book_author': '寒门的世界',
+ 'book_author_address': '广东－深圳',
+ 'book_author_books': '默认',
+ 'book_author_id': '5373514',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/2592732>
+{'book_author': '我吃番茄',
+ 'book_author_address': '江苏省－扬州市',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362096',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/20172056>
+{'book_author': '争斤论两花花帽',
+ 'book_author_address': '上海－嘉定',
+ 'book_author_books': '默认',
+ 'book_author_id': '1030909',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/158791052>
+{'book_author': '老鹰上树',
+ 'book_author_address': '安徽－合肥',
+ 'book_author_books': '默认',
+ 'book_author_id': '3228548',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/223129325>
+{'book_author': '长漫无眠',
+ 'book_author_address': '',
+ 'book_author_books': '默认',
+ 'book_author_id': '8859030',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/108412013>
+{'book_author': '我是耳根',
+ 'book_author_address': '黑龙江－牡丹江',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362120',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:47 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/104052175>
+{'book_author': '横扫天涯',
+ 'book_author_address': '青海－海西蒙古族藏族自治州',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362968',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:47 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:47 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:47 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/306630>
+{'book_author': '小石头00',
+ 'book_author_address': '上海－浦东',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362443',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/152300763>
+{'book_author': '步征',
+ 'book_author_address': '',
+ 'book_author_books': '默认',
+ 'book_author_id': '3070004',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/120794920>
+{'book_author': '鹅是老五',
+ 'book_author_address': '安徽－宣城',
+ 'book_author_books': '默认',
+ 'book_author_id': '2342811',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:48 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:48 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:48 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:48 [scrapy.core.engine] DEBUG: Crawled (200) <POST http://192.168.99.100:8050/execute> (referer: None)
+2018-02-08 17:05:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/19471807>
+{'book_author': '远瞳',
+ 'book_author_address': '',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362948',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/265554>
+{'book_author': '唐家三少',
+ 'book_author_address': '北京－西城',
+ 'book_author_books': '默认',
+ 'book_author_id': '4921',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/12746086>
+{'book_author': '圣骑士的传说',
+ 'book_author_address': '',
+ 'book_author_books': '默认',
+ 'book_author_id': '4362241',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://my.qidian.com/user/226670252>
+{'book_author': '书友20161209222745820',
+ 'book_author_address': '',
+ 'book_author_books': '默认',
+ 'book_author_id': '4224572',
+ 'book_author_sex': '男',
+ 'book_author_write_days': '默认',
+ 'book_author_write_num': '默认'}
+2018-02-08 17:05:48 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-02-08 17:05:48 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 34661,
+ 'downloader/request_count': 45,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/request_method_count/POST': 40,
+ 'downloader/response_bytes': 1889934,
+ 'downloader/response_count': 45,
+ 'downloader/response_status_count/200': 40,
+ 'downloader/response_status_count/301': 1,
+ 'downloader/response_status_count/302': 1,
+ 'downloader/response_status_count/400': 1,
+ 'downloader/response_status_count/404': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 2, 8, 9, 5, 48, 752004),
+ 'item_scraped_count': 40,
+ 'log_count/DEBUG': 86,
+ 'log_count/INFO': 7,
+ 'request_depth_max': 1,
+ 'response_received_count': 43,
+ 'scheduler/dequeued': 80,
+ 'scheduler/dequeued/memory': 80,
+ 'scheduler/enqueued': 80,
+ 'scheduler/enqueued/memory': 80,
+ 'splash/execute/request_count': 40,
+ 'splash/execute/response_count/200': 40,
+ 'start_time': datetime.datetime(2018, 2, 8, 9, 5, 25, 80504)}
+2018-02-08 17:05:48 [scrapy.core.engine] INFO: Spider closed (finished)
