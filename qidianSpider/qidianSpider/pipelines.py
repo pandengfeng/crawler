@@ -9,6 +9,8 @@ import json
 from qidianSpider.items import BookDetailInfo
 from qidianSpider.items import BookTags
 from qidianSpider.items import BookAuthor
+from qidianSpider.items import BookRead
+from qidianSpider.items import BookReaderPayDetail
 #import sys
 class QidianspiderPipeline(object):
     def __init__(self):
@@ -61,10 +63,21 @@ class MySQLStorePipeline(object):
                 self.insert_into_table_BookAuthor(item)
             except Exception:
                 pass 
-          
+            
+        if isinstance(item,BookRead):
+            try:
+                self.insert_into_table_BookReader(item)
+            except Exception:
+                pass 
+            
+        if isinstance(item,BookReaderPayDetail):
+            try:
+                self.insert_into_table_BookReaderPayDetail(item)
+            except Exception:
+                pass 
         return item
     
-    
+    #作品详情
     def insert_into_table_BookDetailInfo(self,item):
 
             with self.connection.cursor() as cursor:
@@ -87,7 +100,7 @@ class MySQLStorePipeline(object):
                     ,item['book_near_update_time']
                     ,item['book_page_url']
                 ))
-
+    #作品对应标签
     def insert_into_table_BookTags(self,item):
         
         try:
@@ -106,7 +119,7 @@ class MySQLStorePipeline(object):
         self.connection.close()
         
     
-    
+    #作者信息
     def insert_into_table_BookAuthor(self,item):
         try:
             with self.connection.cursor() as cursor:
@@ -137,3 +150,48 @@ class MySQLStorePipeline(object):
                         )
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()
+            
+    #付款看书列表        
+    def insert_into_table_BookReaderPayDetail(self,item):
+        
+        try:
+            with self.connection.cursor() as cursor:
+                # Create a new record
+                sql = "INSERT INTO `qidian_book_reader_pay_detail` (`book_reader_id`, `book_id`) VALUES (%s, %s)"
+                cursor.execute(sql, (
+                    item['book_reader_id'],
+                    item['book_id'])
+                )
+        except (RuntimeError, TypeError, NameError):
+            self.connection.rollback()
+    #读者信息详情     
+    def insert_into_table_BookReader(self,item):
+        
+        try:
+            with self.connection.cursor() as cursor:
+                # Create a new record
+                sql = """INSERT INTO `qidian_book_reader` (`book_reader_id`, `book_reader_sex`
+                ,`book_reader_name`,`book_reader_focus`,`book_reader_fans`,`book_reader_address`,
+                `book_reader_vip_level`,`book_reader_experience_level`,`book_reader_collection_number`,
+                `book_reader_subscribe_number`,`book_reader_exceptional_number`,`book_reader_monthly_ticket_number`,
+                `book_reader_recommend_number`)
+                 VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                """
+                cursor.execute(sql, (
+                    item['book_reader_id'],
+                    item['book_reader_sex'],
+                    item['book_reader_name'],
+                    item['book_reader_focus'],
+                    item['book_reader_fans'],
+                    item['book_reader_address'],
+                    item['book_reader_vip_level'],
+                    item['book_reader_experience_level'],
+                    item['book_reader_collection_number'],
+                    item['book_reader_subscribe_number'],
+                    item['book_reader_exceptional_number'],
+                    item['book_reader_monthly_ticket_number'],
+                    item['book_reader_recommend_number'])
+                )
+        except (RuntimeError, TypeError, NameError):
+            self.connection.rollback()
+           

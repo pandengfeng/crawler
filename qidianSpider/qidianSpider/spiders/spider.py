@@ -8,6 +8,8 @@ import logging
 from qidianSpider.items import BookDetailInfo
 from qidianSpider.items import BookTags 
 from qidianSpider.items import BookAuthor
+from qidianSpider.items import BookRead
+from qidianSpider.items import BookReaderPayDetail
 #import time  
 import datetime 
 from pip._vendor.requests.packages.urllib3 import response
@@ -18,6 +20,7 @@ class bookInfoSpider(scrapy.Spider):
     start_urls = ["https://www.qidian.com/all?page=1&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0"]
     base_url = "https://www.qidian.com"
     book_info_base_url = "https://book.qidian.com/info/"
+
     #私有配置项
     custom_settings = {
         'LOG_FILE': 'scrapy.log',
@@ -35,6 +38,8 @@ class bookInfoSpider(scrapy.Spider):
         end
     """
     def start_requests(self):
+    
+        #读取 作者 书籍信息
         for url in self.start_urls:
             #起步url请求 调用splash 渲染js
             yield  scrapy.Request(url,
@@ -201,7 +206,7 @@ class BookAuthorSpider(scrapy.Spider):
            function main(splash, args)
               splash.images_enabled = false
               assert(splash:go(args.url))
-              assert(splash:wait(5))
+              assert(splash:wait(0.5))
               return {
                 html = splash:html(),
               }
@@ -303,10 +308,56 @@ class BookAuthorSpider(scrapy.Spider):
         bookAuthor['book_author'] = response.xpath("//h3[@id='elUidWrap']//a//text()").extract_first()
         
         yield bookAuthor
-        
 
+#读者信息爬虫
+class bookReaderSpider(scrapy.Spider):
+    
+    book_reader_info_url = "https://my.qidian.com/user/"
+    book_reader_num = 314698589
+    
+    #私有配置项
+    custom_settings = {
+        'LOG_FILE': 'scrapy.log',
+        'LOG_STDOUT':True
+        }
+    start_urls = None
+    #lua脚本
+    script = """
+           function main(splash, args)
+              splash.images_enabled = false
+              assert(splash:go(args.url))
+              assert(splash:wait(0.5))
+              return {
+                html = splash:html(),
+              }
+        end
+    """
+    #起始requests
+    def start_requests(self):
+        #读取 读者信息
+        for i in range(self.book_reader_num):
+            #起步url请求 调用splash 渲染js
+            yield  scrapy.Request(self.book_reader_info_url + str(i),
+                        self.parse_book_reader,
+                        meta={
+                        'splash':{
+                            'args':{'lua_source': self.script},
+                            'endpoint': 'execute'
+                            }
+                        })
 
-
+    #抓取读者页面信息
+    def parse_book_reader(self,response):
         
         
+        pass
        
+"""
+190001809 
+#起点目前 注册用户数  314698589
+fetch("https://my.qidian.com/user/314698589")
+response.xpath("//title")
+
+url = "https://my.qidian.com/user/"
+"""
+    
