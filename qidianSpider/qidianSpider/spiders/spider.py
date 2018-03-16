@@ -10,9 +10,11 @@ from qidianSpider.items import BookTags
 from qidianSpider.items import BookAuthor
 from qidianSpider.items import BookRead
 from qidianSpider.items import BookReaderPayDetail
+import json
 #import time  
 import datetime 
 from pip._vendor.requests.packages.urllib3 import response
+from email.policy import default
 
 #作品信息爬虫
 class bookInfoSpider(scrapy.Spider):
@@ -311,9 +313,15 @@ class BookAuthorSpider(scrapy.Spider):
 
 #读者信息爬虫
 class bookReaderSpider(scrapy.Spider):
-    
+    name = "bookReaderSpider" 
     book_reader_info_url = "https://my.qidian.com/user/"
-    book_reader_num = 314698589
+    book_reader_num = 20
+    
+    vip_level = {"icon-gv":"高级VIP",
+                 "icon-hy":"高级会员",
+                 "icon-cv":"初级VIP",
+                 "icon-pt":"普通会员"
+                 }
     
     #私有配置项
     custom_settings = {
@@ -326,7 +334,7 @@ class bookReaderSpider(scrapy.Spider):
            function main(splash, args)
               splash.images_enabled = false
               assert(splash:go(args.url))
-              assert(splash:wait(0.5))
+              assert(splash:wait(5))
               return {
                 html = splash:html(),
               }
@@ -336,6 +344,7 @@ class bookReaderSpider(scrapy.Spider):
     def start_requests(self):
         #读取 读者信息
         for i in range(self.book_reader_num):
+        
             #起步url请求 调用splash 渲染js
             yield  scrapy.Request(self.book_reader_info_url + str(i),
                         self.parse_book_reader,
@@ -345,19 +354,102 @@ class bookReaderSpider(scrapy.Spider):
                             'endpoint': 'execute'
                             }
                         })
-
+            
     #抓取读者页面信息
     def parse_book_reader(self,response):
         
+        bookRead = BookRead()
+        #读者id
+        bookRead['book_reader_id'] = response.xpath("//h3[@id='elUidWrap']//@data-id").extract_first()
+        #无效链接不操作
+        if bookRead['book_reader_id'] == None:
+            return 
         
-        pass
+        infoData = response.xpath("//div[@class='header-msg-desc']//text()").extract_first()
+        
+        if infoData[0] == "男" or infoData[0] == "女":
+            #地址
+            bookRead['book_reader_address'] = infoData[4:]
+            bookRead['book_reader_sex'] = infoData[0]
+        else:
+            bookRead['book_reader_address'] = infoData[3:]
+            bookRead['book_reader_sex'] = "默认"
+        #读者名称
+        bookRead['book_reader_name'] = response.xpath("//h3[@id='elUidWrap']//a//text()").extract_first()
+       
+        header_msg_strong = response.xpath("//strong[@class='header-msg-strong']//text()").extract()
+        #关注
+        bookRead['book_reader_focus'] = header_msg_strong[0]
+        #粉丝
+        bookRead['book_reader_fans'] = header_msg_strong[1]
+        
+        #VIP等级       
+        vip_key = response.xpath("//div[@class='header-avatar']//a[contains(@class,'icon')]/@class").extract_first()[23:]
+        bookRead['book_reader_vip_level'] =  self.vip_level.get(vip_key) 
+        if bookRead['book_reader_vip_level'] == None :
+            bookRead['book_reader_vip_level'] = "免费用户" 
+        #经验等级
+        bookRead['book_reader_experience_level'] = response.xpath("//h3[@id='elUidWrap']//a[@class='header-msg-level']//text()").extract_first()[2:]
+        
+        li = response.xpath("//ul[@id='elHistoryWrap']//li//text()").extract()
+        
+        #line 命令行测试
+        #from scrapy.shell import inspect_response
+        #inspect_response(response, self)
+        
+        #书架收藏
+        bookRead['book_reader_collection_number'] = li[0][6:-1]
+        #订阅数
+        bookRead['book_reader_subscribe_number'] = li[1][7:-1]
+        #打赏数
+        bookRead['book_reader_exceptional_number'] = li[2][6:-1]
+        #投月票
+        bookRead['book_reader_monthly_ticket_number'] = li[3][5:-1]
+        #投推荐票数
+        bookRead['book_reader_recommend_number'] = li[4][6:-1]
+        
+        yield bookRead
+        
+        fans_levels = response.xpath("//ul[@id='fansHonorTab']//a[contains(@class,'elCanTab')]//@data-index").extract()
+        
+        for i in fans_levels:
+            
+            yield  scrapy.Request("https://my.qidian.com/ajax/user/FriendFansList?id="+str(bookRead["book_reader_id"])+"&levelId="+str(i),
+                        self.parse_reader_fansList,
+                      )
+        
+
+    #作品
+    def parse_reader_fansList(self,response):
+        json_body = json.loads(response.body)
+        
+        #print(json_body)
+        bookReaderPayDetail = BookReaderPayDetail()
+        #读者id
+        params = response.url[50:].split('&',1)
+        bookReaderPayDetail['book_reader_id'] = params[0]
+        #粉丝等级
+        bookReaderPayDetail['book_reader_fans_level'] = params[1][8:]
+        
+        
+        if json_body.get('books'):
+            for book_id in json_body.get('books'):
+                #作品id
+                bookReaderPayDetail['book_id'] = book_id
+                
+                yield bookReaderPayDetail
        
 """
-190001809 
-#起点目前 注册用户数  314698589
-fetch("https://my.qidian.com/user/314698589")
-response.xpath("//title")
 
+#190001809 
+#起点目前 注册用户数  314698589
+fetch("https://my.qidian.com/user/190001809")
+response.xpath("//title")
 url = "https://my.qidian.com/user/"
+
+https://my.qidian.com/ajax/user/FriendFansList?id=190001809&levelId=3
+
+https://my.qidian.com/ajax/user/FriendFansList?_csrfToken=Iwt2avhIzBnATeNl2WrxCAl0VM5ibH6clhkng5iy&id=190001809&levelId=4
+
 """
     

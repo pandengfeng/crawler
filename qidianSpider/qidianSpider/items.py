@@ -164,7 +164,8 @@ class BookRead(scrapy.Item):
 #付款看书列表
 create table qidian_book_reader_pay_detail(
     book_reader_id VARCHAR(128) not null COMMENT '读者id',
-    book_id VARCHAR(128) not null COMMENT '作品id'
+    book_id VARCHAR(128) not null COMMENT '作品id',
+    book_reader_fans_level not null COMMENT '作品粉丝等级'
 )
 """
 
@@ -173,3 +174,5 @@ class BookReaderPayDetail(scrapy.Item):
     book_reader_id = scrapy.Field()
     #作品id
     book_id = scrapy.Field()
+    #作品粉丝等级
+    book_reader_fans_level = scrapy.Field()

@@ -157,10 +157,11 @@ class MySQLStorePipeline(object):
         try:
             with self.connection.cursor() as cursor:
                 # Create a new record
-                sql = "INSERT INTO `qidian_book_reader_pay_detail` (`book_reader_id`, `book_id`) VALUES (%s, %s)"
+                sql = "INSERT INTO `qidian_book_reader_pay_detail` (`book_reader_id`, `book_id`,`book_reader_fans_level`) VALUES (%s, %s,%s)"
                 cursor.execute(sql, (
                     item['book_reader_id'],
-                    item['book_id'])
+                    item['book_id'],
+                    item['book_reader_fans_level'])
                 )
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()
