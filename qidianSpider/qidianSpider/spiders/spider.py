@@ -45,13 +45,8 @@ class bookInfoSpider(scrapy.Spider):
         for url in self.start_urls:
             #起步url请求 调用splash 渲染js
             yield  scrapy.Request(url,
-                        self.parse_all_book,
-                        meta={
-                        'splash':{
-                            'args':{'lua_source': self.script},
-                            'endpoint': 'execute'
-                            }
-                        })
+                        self.parse_all_book
+                      )
     #首页parse
     def parse_all_book(self, response):
         #刮取开始
@@ -156,7 +151,6 @@ class bookInfoSpider(scrapy.Spider):
             update_time = response.xpath("//em[@class='time']//text()").extract_first()    
         #最近更新时间
         bookDetailInfo['book_near_update_time'] = update_time
-        
         #章节数  ----加载缓慢 可能数据丢失
         book_chapter_number= response.xpath("//span[@id='J-catalogCount']//text()").extract_first()
         if book_chapter_number:
@@ -170,8 +164,10 @@ class bookInfoSpider(scrapy.Spider):
             bookDetailInfo['book_discuss_number'] = book_discuss_number[1:-2]
         else:
             bookDetailInfo['book_discuss_number'] = 0
-        yield bookDetailInfo 
+            
         
+        yield bookDetailInfo 
+      
         
         bookTags['book_id'] = book_id
         #作品标签
@@ -188,9 +184,19 @@ class bookInfoSpider(scrapy.Spider):
             #保存到标签表
             bookTags['book_tag'] = book_tag
             yield bookTags
-
-
-
+    """
+    #作品讨论数 需要特殊加密处理
+    def parse_book_threadList(self,response):
+        print("------------")
+        print(response.url)
+        print("------------")
+        json_body = json.loads(response.body)
+        bookDetailInfo = BookDetailInfo()
+        bookDetailInfo['book_discuss_number'] = json_body.get("data").get("threadCnt")
+        bookDetailInfo['book_id'] = response.url[47:].split("&")[2][7:]
+        
+        yield bookDetailInfo
+    """
 import pymysql.cursors
 #作者信息爬虫
 class BookAuthorSpider(scrapy.Spider):
@@ -240,13 +246,8 @@ class BookAuthorSpider(scrapy.Spider):
         if results:
             for row in results:
                 yield scrapy.Request(row['book_author_url'],
-                        self.pares_detail_author,
-                        meta={
-                        'splash':{
-                            'args':{'lua_source': self.script},
-                            'endpoint': 'execute'
-                            }
-                        })
+                        self.pares_detail_author
+                       )
 
     #爬取作者信息
     def pares_detail_author(self,response):
@@ -264,12 +265,9 @@ class BookAuthorSpider(scrapy.Spider):
         bookAuthor['book_author_write_num'] = datas[1]
         #总创作天数
         bookAuthor['book_author_write_days'] = datas[2]
-        #性别
-        bookAuthor['book_author_sex'] = "默认"
-        #地址
-        bookAuthor['book_author_address'] = "默认"
         #作者id
-        bookAuthor['book_author_id'] = response.url[42:]
+        bookAuthor['book_author_id'] = response.url[29:]
+        
         yield bookAuthor
 
         author_personal_url = response.xpath("//a[@class='header-msg-tosingle']//@href").extract_first()
@@ -278,13 +276,8 @@ class BookAuthorSpider(scrapy.Spider):
             author_personal_url = base_author_url + author_personal_url 
             
             yield scrapy.Request(author_personal_url,
-                        self.pares_author_personal,
-                        meta={
-                        'splash':{
-                            'args':{'lua_source': self.script},
-                            'endpoint': 'execute'
-                            }
-                        })
+                        self.pares_author_personal
+                      )
     
     #爬取个人页面
     def pares_author_personal(self,response): 
@@ -292,12 +285,7 @@ class BookAuthorSpider(scrapy.Spider):
         infoData = response.xpath("//div[@class='header-msg-desc']//text()").extract_first()
         
         bookAuthor['book_author_id'] = response.xpath("//a[@class='qdp-button-a mlr4']//@href").extract_first()[8:]
-        #作品数量
-        bookAuthor['book_author_books'] = "默认"
-        #总创作字数
-        bookAuthor['book_author_write_num'] = "默认"
-        #总创作天数
-        bookAuthor['book_author_write_days'] = "默认"
+
         
         if infoData[0] == "男" or infoData[0] == "女":
             #地址
@@ -305,7 +293,6 @@ class BookAuthorSpider(scrapy.Spider):
             bookAuthor['book_author_sex'] = infoData[0]
         else:
             bookAuthor['book_author_address'] = infoData[3:]
-            bookAuthor['book_author_sex'] = "默认"
             
         bookAuthor['book_author'] = response.xpath("//h3[@id='elUidWrap']//a//text()").extract_first()
         
@@ -315,7 +302,7 @@ class BookAuthorSpider(scrapy.Spider):
 class bookReaderSpider(scrapy.Spider):
     name = "bookReaderSpider" 
     book_reader_info_url = "https://my.qidian.com/user/"
-    book_reader_num = 20
+    book_reader_num = 100
     
     vip_level = {"icon-gv":"高级VIP",
                  "icon-hy":"高级会员",
@@ -344,16 +331,11 @@ class bookReaderSpider(scrapy.Spider):
     def start_requests(self):
         #读取 读者信息
         for i in range(self.book_reader_num):
-        
+           
             #起步url请求 调用splash 渲染js
             yield  scrapy.Request(self.book_reader_info_url + str(i),
-                        self.parse_book_reader,
-                        meta={
-                        'splash':{
-                            'args':{'lua_source': self.script},
-                            'endpoint': 'execute'
-                            }
-                        })
+                        self.parse_book_reader
+                       )
             
     #抓取读者页面信息
     def parse_book_reader(self,response):
@@ -390,26 +372,19 @@ class bookReaderSpider(scrapy.Spider):
             bookRead['book_reader_vip_level'] = "免费用户" 
         #经验等级
         bookRead['book_reader_experience_level'] = response.xpath("//h3[@id='elUidWrap']//a[@class='header-msg-level']//text()").extract_first()[2:]
-        
-        li = response.xpath("//ul[@id='elHistoryWrap']//li//text()").extract()
-        
-        #line 命令行测试
-        #from scrapy.shell import inspect_response
-        #inspect_response(response, self)
-        
-        #书架收藏
-        bookRead['book_reader_collection_number'] = li[0][6:-1]
-        #订阅数
-        bookRead['book_reader_subscribe_number'] = li[1][7:-1]
-        #打赏数
-        bookRead['book_reader_exceptional_number'] = li[2][6:-1]
-        #投月票
-        bookRead['book_reader_monthly_ticket_number'] = li[3][5:-1]
-        #投推荐票数
-        bookRead['book_reader_recommend_number'] = li[4][6:-1]
-        
+
         yield bookRead
         
+        #动态历史数据    
+        yield  scrapy.Request("https://my.qidian.com/ajax/User/FriendHistory?id="+bookRead['book_reader_id'],
+                        self.parse_reader_history
+                      )   
+        #粉丝勋章列表
+        yield  scrapy.Request("https://my.qidian.com/ajax/User/FriendFansCnt?id="+bookRead['book_reader_id'],
+                        self.parse_reader_fansList_list
+                      ) 
+     
+        """
         fans_levels = response.xpath("//ul[@id='fansHonorTab']//a[contains(@class,'elCanTab')]//@data-index").extract()
         
         for i in fans_levels:
@@ -417,13 +392,48 @@ class bookReaderSpider(scrapy.Spider):
             yield  scrapy.Request("https://my.qidian.com/ajax/user/FriendFansList?id="+str(bookRead["book_reader_id"])+"&levelId="+str(i),
                         self.parse_reader_fansList,
                       )
+        """
+    #粉丝勋章列表
+    def parse_reader_fansList_list(self,response):
+        json_body = json.loads(response.body).get("data").get("config")
         
+        book_reader_id = response.url[49:]
+        for config in json_body:
+            
+            yield  scrapy.Request("https://my.qidian.com/ajax/user/FriendFansList?id="+str(book_reader_id)+"&levelId="+str(config.get("levelId")),
+                        self.parse_reader_fansList,
+                      )
 
+    
+    #动态历史数据 json
+    def parse_reader_history(self,response):
+        bookRead = BookRead()
+        
+        json_body = json.loads(response.body).get("data").get("historyData")
+        
+        bookRead['book_reader_id'] = response.url[49:]
+        #书架收藏
+        bookRead['book_reader_collection_number'] = json_body.get("bshelfCnt")
+        #订阅数
+        bookRead['book_reader_subscribe_number'] = json_body.get("subscribeCnt")
+        #打赏数
+        bookRead['book_reader_exceptional_number'] = json_body.get("donateCnt")
+        #投月票
+        bookRead['book_reader_monthly_ticket_number'] = json_body.get("monthTicketCnt")
+        #投推荐票数
+        bookRead['book_reader_recommend_number'] = json_body.get("rcmTicketCnt")
+        
+        yield bookRead
+     
+    
     #作品
     def parse_reader_fansList(self,response):
         json_body = json.loads(response.body)
         
-        #print(json_body)
+        #line 命令行测试
+        #from scrapy.shell import inspect_response
+        #inspect_response(response, self)
+
         bookReaderPayDetail = BookReaderPayDetail()
         #读者id
         params = response.url[50:].split('&',1)
@@ -432,11 +442,12 @@ class bookReaderSpider(scrapy.Spider):
         bookReaderPayDetail['book_reader_fans_level'] = params[1][8:]
         
         
-        if json_body.get('books'):
-            for book_id in json_body.get('books'):
+        if json_body.get("data").get('books'):
+            for book in json_body.get("data").get('books'):
                 #作品id
-                bookReaderPayDetail['book_id'] = book_id
-                
+                bookReaderPayDetail['book_id'] = book.get("bookId")
+                #作品名称
+                bookReaderPayDetail['book_name'] = book.get("bookName")
                 yield bookReaderPayDetail
        
 """
@@ -447,9 +458,13 @@ fetch("https://my.qidian.com/user/190001809")
 response.xpath("//title")
 url = "https://my.qidian.com/user/"
 
+#粉丝勋章
 https://my.qidian.com/ajax/user/FriendFansList?id=190001809&levelId=3
-
-https://my.qidian.com/ajax/user/FriendFansList?_csrfToken=Iwt2avhIzBnATeNl2WrxCAl0VM5ibH6clhkng5iy&id=190001809&levelId=4
-
+#粉丝勋章列表
+https://my.qidian.com/ajax/user/FriendFansCnt?id=190001809
+#动态历史数据
+https://my.qidian.com/ajax/User/FriendHistory?id=190001809
+#讨论数
+https://book.qidian.com/ajax/book/GetBookForum?_csrfToken=Iwt2avhIzBnATeNl2WrxCAl0VM5ibH6clhkng5iy&authorId=2432247&bookId=3073025&chanId=12&pageSize=0
 """
     

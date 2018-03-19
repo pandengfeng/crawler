@@ -20,7 +20,7 @@ HTTPERROR_ALLOW_ALL = True
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-
+RANDOMIZE_DOWNLOAD_DELAY = True
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -59,6 +59,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
 }
+
 #scrapy_splash参数
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
