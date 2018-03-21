@@ -151,14 +151,17 @@ class bookInfoSpider(scrapy.Spider):
         if str_time == '今天':
             update_time = datetime.datetime.now()
             #格式化时间
-            update_time = update_time.strftime("%Y-%m-%d %H:%M:%S")  
+            update_time = update_time.strftime("%Y-%m-%d")  
         elif str_time == '昨日':
             oneday=datetime.timedelta(days=1) 
             update_time = datetime.datetime.today() - oneday
             #格式化时间
-            update_time = update_time.strftime("%Y-%m-%d %H:%M:%S") 
+            update_time = update_time.strftime("%Y-%m-%d") 
         else:
-            update_time = response.xpath("//em[@class='time']//text()").extract_first()    
+            update_time = response.xpath("//em[@class='time']//text()").extract_first()   
+            if update_time[-3:] == "小时前" or update_time[-3:] == "分钟前":
+                update_time = datetime.datetime.now()
+                update_time = update_time.strftime("%Y-%m-%d") 
         #最近更新时间
         bookDetailInfo['book_near_update_time'] = update_time
         #章节数  ----加载缓慢 可能数据丢失
@@ -496,5 +499,26 @@ https://book.qidian.com/ajax/book/GetBookForum?_csrfToken=Iwt2avhIzBnATeNl2WrxCA
 https://book.qidian.com/ajax/book/category?_csrfToken=Iwt2avhIzBnATeNl2WrxCAl0VM5ibH6clhkng5iy&bookId=1003354631
 
 
+"""
+"""
+#用户部分随机抽取方案
+sum_array = np.array(range(1,1000))
+
+np.random.shuffle(sum_array)
+
+print(sum_array)
+
+
+c2 = np.random.choice(sum_array,999,replace = False)
+print("-----")
+print(c2)
+sum_array = np.delete(sum_array,c2)
+
+print("-----")
+print(sum_array)
+
+c2 = np.random.choice(sum_array,1,replace = False)
+
+print(c2)
 """
     
