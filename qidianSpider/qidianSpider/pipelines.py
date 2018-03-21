@@ -81,13 +81,14 @@ class MySQLStorePipeline(object):
     def insert_into_table_BookDetailInfo(self,item):
 
             with self.connection.cursor() as cursor:
+                if 'book_name' in item:
                 # Create a new record   
                     sql = """
                         INSERT INTO `qidian_book_detail_info`
                         (book_id,book_name,book_author,book_author_url,book_words_number
                         ,book_click_quantity,book_recommend_number,book_monthly_ticket_number,book_support_number
-                        ,book_introduction,book_chapter_number,book_near_update_time,book_page_url,book_discuss_number) 
-                        VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                        ,book_introduction,book_chapter_number,book_near_update_time,book_page_url) 
+                        VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                        """
                     cursor.execute(sql, (
                         item['book_id'],item['book_name'],item['book_author'],item['book_author_url'],item['book_words_number']
@@ -98,8 +99,22 @@ class MySQLStorePipeline(object):
                         ,item['book_chapter_number']
                         ,item['book_near_update_time']
                         ,item['book_page_url']
-                        ,item['book_discuss_number']
                     ))
+                    
+                elif 'book_discuss_number' in item:
+                    sql = """ 
+                        update qidian_book_detail_info set book_discuss_number = %s 
+                        where book_id = %s
+                    """
+                    cursor.execute(sql,(item['book_discuss_number'],item['book_id']))
+                    
+                elif 'book_chapter_number' in item:
+                    sql = """ 
+                        update qidian_book_detail_info set book_chapter_number = %s 
+                        where book_id = %s
+                    """
+                    cursor.execute(sql,(item['book_chapter_number'],item['book_id']))
+                self.connection.commit()
     #作品对应标签
     def insert_into_table_BookTags(self,item):
         
@@ -111,6 +126,7 @@ class MySQLStorePipeline(object):
                     item['book_id'],
                     item['book_tag'])
                 )
+                self.connection.commit()
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()
            
@@ -146,6 +162,7 @@ class MySQLStorePipeline(object):
                         item['book_author_sex'],
                         item['book_author_id'])
                         )
+                self.connection.commit()
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()
             
@@ -163,6 +180,7 @@ class MySQLStorePipeline(object):
                     item['book_name']
                     )
                 )
+                self.connection.commit()
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()
    
@@ -212,6 +230,7 @@ class MySQLStorePipeline(object):
                       item['book_reader_id']
                             )
                     )
+                self.connection.commit()
                 
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()

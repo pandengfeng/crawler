@@ -13,8 +13,6 @@ from qidianSpider.items import BookReaderPayDetail
 import json
 #import time  
 import datetime 
-from pip._vendor.requests.packages.urllib3 import response
-from email.policy import default
 
 #作品信息爬虫
 class bookInfoSpider(scrapy.Spider):
@@ -22,12 +20,19 @@ class bookInfoSpider(scrapy.Spider):
     start_urls = ["https://www.qidian.com/all?page=1&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0"]
     base_url = "https://www.qidian.com"
     book_info_base_url = "https://book.qidian.com/info/"
-
+    
+    try_again_num = 0
+    
+    page_num = 0
     #私有配置项
     custom_settings = {
         'LOG_FILE': 'scrapy.log',
-        'LOG_STDOUT':True
+        'LOG_STDOUT':True,
+        'LOG_LEVEL':'WARNING'
     }
+    
+    
+    logger = logging.getLogger()
     #lua脚本
     script = """
            function main(splash, args)
@@ -40,7 +45,7 @@ class bookInfoSpider(scrapy.Spider):
         end
     """
     def start_requests(self):
-    
+        
         #读取 作者 书籍信息
         for url in self.start_urls:
             #起步url请求 调用splash 渲染js
@@ -49,6 +54,32 @@ class bookInfoSpider(scrapy.Spider):
                       )
     #首页parse
     def parse_all_book(self, response):
+        
+        #下一页
+        nextUrl = response.xpath("//a[@class='lbf-pagination-next ']//@href").extract_first()   
+        
+        #重试10次操作 
+        if nextUrl:
+            self.try_again_num = 0
+            #下一页操作
+            nextUrl = "https:" + nextUrl
+            yield  scrapy.Request(nextUrl,
+                        self.parse_all_book) 
+        else:
+            self.try_again_num = self.try_again_num + 1
+            if self.try_again_num > 10:
+                self.logger.warning("*************重试失败链接****************:"+str(response.url))
+                self.logger.warning("当前页面page_num"+str(self.page_num))
+                return
+            else:
+                self.logger.warning("*************开始重试****************:"+str(response.url)+",次数:"+str(self.try_again_num))
+                yield scrapy.Request(response.url,
+                        self.parse_all_book)
+                return
+        
+        #页面数+1
+        self.page_num = self.page_num + 1
+        
         #刮取开始
         elementSelect = response.xpath("//ul[@class='all-img-list cf']")
         bookBaseSelects = elementSelect.xpath(".//li")
@@ -60,32 +91,9 @@ class bookInfoSpider(scrapy.Spider):
             url = self.book_info_base_url + book_url
             #logging.info("url:"+url)
             yield scrapy.Request(url,
-                        self.parse_detail_book,
-                        meta={
-                        'splash':{
-                            'args':{'lua_source': self.script},
-                            'endpoint': 'execute'
-                            }
-                        })
+                        self.parse_detail_book)
         
         
-        
-        """    
-        #下一页
-        nextUrl = response.xpath("//a[@class='lbf-pagination-next']//@href").extract_first()   
-         
-        if nextUrl:
-            #下一页操作
-            nextUrl = "https" + nextUrl
-            yield  scrapy.Request(nextUrl,
-                        self.parse_all_book,
-                        meta={
-                        'splash':{
-                            'args':{'lua_source': self.script},
-                            'endpoint': 'execute'
-                            }
-                        }) 
-        """  
         #line 命令行测试
         #from scrapy.shell import inspect_response
         #inspect_response(response, self)
@@ -96,6 +104,8 @@ class bookInfoSpider(scrapy.Spider):
         #标签
         bookTags = BookTags()
         
+        #token cookies 
+        csrfToken = str(response.request.headers['Cookie'])[13:53]
         
         book_info_element = response.xpath("//div[@class='book-info ']")
         
@@ -157,17 +167,25 @@ class bookInfoSpider(scrapy.Spider):
             bookDetailInfo['book_chapter_number'] = book_chapter_number[1:-2]
         else:
             bookDetailInfo['book_chapter_number'] = 0
-            
+        """   
         #讨论数 ----加载缓慢 可能数据丢失
         book_discuss_number = response.xpath("//span[@id='J-discusCount']//text()").extract_first()
         if book_discuss_number:
             bookDetailInfo['book_discuss_number'] = book_discuss_number[1:-2]
         else:
+        kwyYzVewq18yi1ISV3ZXdbnn20dhIbos533VWdUe
             bookDetailInfo['book_discuss_number'] = 0
-            
+        """   
+        yield bookDetailInfo
+  
+        url = "https://book.qidian.com/ajax/book/GetBookForum?_csrfToken="+csrfToken+"&authorId="+str(book_info_element.xpath(".//h1//span//a//@href").extract_first()[36:])+"&bookId="+str(book_id)+"&chanId=12&pageSize=0"
+        #讨论数
+        yield scrapy.Request(url,self.parse_book_threadList) 
         
-        yield bookDetailInfo 
-      
+        #章节数 0 清楚 ajax查询
+        if bookDetailInfo['book_chapter_number'] == 0:
+            book_chapter_number_url = "https://book.qidian.com/ajax/book/category?_csrfToken="+csrfToken+"&bookId="+str(book_id)
+            yield scrapy.Request(book_chapter_number_url,self.parse_book_chapter_number) 
         
         bookTags['book_id'] = book_id
         #作品标签
@@ -184,19 +202,27 @@ class bookInfoSpider(scrapy.Spider):
             #保存到标签表
             bookTags['book_tag'] = book_tag
             yield bookTags
-    """
-    #作品讨论数 需要特殊加密处理
+    
+    #作品讨论数 
     def parse_book_threadList(self,response):
-        print("------------")
-        print(response.url)
-        print("------------")
+        #line 命令行测试
+        #from scrapy.shell import inspect_response
+        #inspect_response(response, self)
+        
         json_body = json.loads(response.body)
         bookDetailInfo = BookDetailInfo()
         bookDetailInfo['book_discuss_number'] = json_body.get("data").get("threadCnt")
         bookDetailInfo['book_id'] = response.url[47:].split("&")[2][7:]
         
         yield bookDetailInfo
-    """
+    #章节数
+    def parse_book_chapter_number(self,response):
+        json_body = json.loads(response.body)
+        bookDetailInfo = BookDetailInfo()
+        bookDetailInfo['book_chapter_number'] = json_body.get("data").get("chapterTotalCnt")
+        bookDetailInfo['book_id'] = response.url.split("&")[1][7:]
+        yield bookDetailInfo
+        
 import pymysql.cursors
 #作者信息爬虫
 class BookAuthorSpider(scrapy.Spider):
@@ -466,5 +492,9 @@ https://my.qidian.com/ajax/user/FriendFansCnt?id=190001809
 https://my.qidian.com/ajax/User/FriendHistory?id=190001809
 #讨论数
 https://book.qidian.com/ajax/book/GetBookForum?_csrfToken=Iwt2avhIzBnATeNl2WrxCAl0VM5ibH6clhkng5iy&authorId=2432247&bookId=3073025&chanId=12&pageSize=0
+#章节数
+https://book.qidian.com/ajax/book/category?_csrfToken=Iwt2avhIzBnATeNl2WrxCAl0VM5ibH6clhkng5iy&bookId=1003354631
+
+
 """
     

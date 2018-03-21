@@ -42,28 +42,29 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 #DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
+#   'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36'
 #}
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
+#SPIDER_MIDDLEWARES = {
     #'qidianSpider.middlewares.QidianspiderSpiderMiddleware': 543,
-    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
-}
+#    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+#}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
+#DOWNLOADER_MIDDLEWARES = {
     #'qidianSpider.middlewares.QidianspiderDownloaderMiddleware': 543,
-    'scrapy_splash.SplashCookiesMiddleware': 723,
-    'scrapy_splash.SplashMiddleware': 725,
-    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
-}
+#    'scrapy_splash.SplashCookiesMiddleware': 723,
+#    'scrapy_splash.SplashMiddleware': 725,
+#   'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+#}
 
 #scrapy_splash参数
-DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
-HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
-SPLASH_URL = 'http://192.168.99.100:8050'
+#DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+#HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
+#SPLASH_URL = 'http://192.168.99.100:8050'
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
