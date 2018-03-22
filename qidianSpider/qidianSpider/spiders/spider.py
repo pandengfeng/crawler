@@ -14,7 +14,8 @@ import json
 import numpy as np
 #import time  
 import datetime 
-
+#保存爬虫状态信息 终止 恢复命令
+#scrapy crawl bookInfoSpider -s JOBDIR="C:\Users\Administrator\Desktop\data\scrapy\bookInfoSpider-1" 
 #作品信息爬虫
 class bookInfoSpider(scrapy.Spider):
     name = "bookInfoSpider"
