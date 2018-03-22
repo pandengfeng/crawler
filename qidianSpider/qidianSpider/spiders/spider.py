@@ -11,6 +11,7 @@ from qidianSpider.items import BookAuthor
 from qidianSpider.items import BookRead
 from qidianSpider.items import BookReaderPayDetail
 import json
+import numpy as np
 #import time  
 import datetime 
 
@@ -328,10 +329,17 @@ class BookAuthorSpider(scrapy.Spider):
         yield bookAuthor
 
 #读者信息爬虫
+
+#数据太大   区间抽取  分 30个区间 每区间1000W 抽取 40W有效数据
 class bookReaderSpider(scrapy.Spider):
     name = "bookReaderSpider" 
     book_reader_info_url = "https://my.qidian.com/user/"
-    book_reader_num = 100
+    #30个区间
+    section = 30
+    #区间大小
+    section_size = 10000000
+    #每个区间样本数量
+    section_sample = 400000
     
     vip_level = {"icon-gv":"高级VIP",
                  "icon-hy":"高级会员",
@@ -356,19 +364,34 @@ class bookReaderSpider(scrapy.Spider):
               }
         end
     """
+    #获取ids 区间随机获取 1200W随机数  在[0,3e]
+    def init_book_reader_ids(self):
+        book_reader_ids_init = np.arange(0)
+        for i in range(self.section):
+            start_id = i * self.section_size
+            end_id = (i + 1) * self.section_size
+            #获取区间
+            book_reader_ids = np.array(range(start_id,end_id))
+            #打乱
+            np.random.shuffle(book_reader_ids) 
+            #取不重复的随机
+            choice_array = np.random.choice(book_reader_ids,self.section_sample,replace = False)
+            book_reader_ids_init = np.append(book_reader_ids_init,choice_array)
+        return book_reader_ids_init
     #起始requests
     def start_requests(self):
+        book_reader_ids =  self.init_book_reader_ids
         #读取 读者信息
-        for i in range(self.book_reader_num):
-           
+        for i in range(book_reader_ids):
             #起步url请求 调用splash 渲染js
             yield  scrapy.Request(self.book_reader_info_url + str(i),
-                        self.parse_book_reader
-                       )
-            
+                            self.parse_book_reader
+                           )
+
+    
     #抓取读者页面信息
     def parse_book_reader(self,response):
-        
+         
         bookRead = BookRead()
         #读者id
         bookRead['book_reader_id'] = response.xpath("//h3[@id='elUidWrap']//@data-id").extract_first()
