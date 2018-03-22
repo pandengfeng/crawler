@@ -368,8 +368,8 @@ class bookReaderSpider(scrapy.Spider):
     def init_book_reader_ids(self):
         book_reader_ids_init = np.arange(0)
         for i in range(self.section):
-            start_id = i * self.section_size
-            end_id = (i + 1) * self.section_size
+            start_id = i * self.section_size+1
+            end_id = (i + 1) * self.section_size+1
             #获取区间
             book_reader_ids = np.array(range(start_id,end_id))
             #打乱
