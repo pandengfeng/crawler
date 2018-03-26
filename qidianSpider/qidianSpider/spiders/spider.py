@@ -63,10 +63,6 @@ class bookInfoSpider(scrapy.Spider):
         #重试10次操作 
         if nextUrl:
             self.try_again_num = 0
-            #下一页操作
-            nextUrl = "https:" + nextUrl
-            yield  scrapy.Request(nextUrl,
-                        self.parse_all_book) 
         else:
             self.try_again_num = self.try_again_num + 1
             if self.try_again_num > 10:
@@ -87,15 +83,17 @@ class bookInfoSpider(scrapy.Spider):
         bookBaseSelects = elementSelect.xpath(".//li")
         for bookBaseSelect in bookBaseSelects:
             book_url = bookBaseSelect.xpath(".//div[@class='book-mid-info']//a//@data-bid").extract_first()
-            #book_name = bookBaseSelect.xpath(".//div[@class='book-mid-info']//a//text()").extract_first()
-            #logging.info("书名:"+book_name+"URL:"+book_url)
             #书籍详细信息
             url = self.book_info_base_url + book_url
-            #logging.info("url:"+url)
             yield scrapy.Request(url,
                         self.parse_detail_book)
         
         
+        if nextUrl:
+            #下一页操作
+            nextUrl = "https:" + nextUrl
+            yield  scrapy.Request(nextUrl,
+                        self.parse_all_book) 
         #line 命令行测试
         #from scrapy.shell import inspect_response
         #inspect_response(response, self)
