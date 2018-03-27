@@ -11,6 +11,7 @@ from qidianSpider.items import BookTags
 from qidianSpider.items import BookAuthor
 from qidianSpider.items import BookRead
 from qidianSpider.items import BookReaderPayDetail
+from qidianSpider.sendEmail import emailSender
 #import sys
 class QidianspiderPipeline(object):
     def __init__(self):
@@ -25,9 +26,11 @@ class QidianspiderPipeline(object):
      
         return item
     def open_spider(self, spider):
+        
         pass
     def close_spider(self, spider):
-        pass
+        emailSender.__init__(emailSender)
+        emailSender.sendEmail(emailSender,toLst=["2991974292@qq.com"], subject = u'爬虫'  , body = u"""抓取结束""")
 
 import pymysql.cursors
 
@@ -37,7 +40,7 @@ class MySQLStorePipeline(object):
 
     def __init__(self):
         #self.file = open('data.json', 'w', encoding='utf-8')
-        self.connection = pymysql.connect(host='localhost',
+        self.connection = pymysql.connect(host='127.0.0.1',
                                  user='root',
                                  password='123456',
                                  db='local',

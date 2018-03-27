@@ -14,6 +14,7 @@ import json
 import numpy as np
 #import time  
 import datetime 
+
 #保存爬虫状态信息 终止 恢复命令
 #scrapy crawl bookInfoSpider -s JOBDIR="C:\Users\Administrator\Desktop\data\scrapy\bookInfoSpider-1" 
 #作品信息爬虫
@@ -104,8 +105,8 @@ class bookInfoSpider(scrapy.Spider):
         #标签
         bookTags = BookTags()
         
-        #token cookies 
-        csrfToken = str(response.request.headers['Cookie'])[13:53]
+        csrfToken = str(response.request.headers['Cookie']).split(sep='_csrfToken=')[1][:40]
+        self.logger.warning("Cookie:"+str(response.request.headers['Cookie']))
         
         book_info_element = response.xpath("//div[@class='book-info ']")
         
@@ -211,20 +212,20 @@ class bookInfoSpider(scrapy.Spider):
         #line 命令行测试
         #from scrapy.shell import inspect_response
         #inspect_response(response, self)
-        
-        json_body = json.loads(response.body)
-        bookDetailInfo = BookDetailInfo()
-        bookDetailInfo['book_discuss_number'] = json_body.get("data").get("threadCnt")
-        bookDetailInfo['book_id'] = response.url[47:].split("&")[2][7:]
-        
-        yield bookDetailInfo
+        json_body = json.loads(response.body.decode('utf-8'))
+        if json_body.get('code') == 0:
+            bookDetailInfo = BookDetailInfo()
+            bookDetailInfo['book_discuss_number'] = json_body.get("data").get("threadCnt")
+            bookDetailInfo['book_id'] = response.url[47:].split("&")[2][7:]
+            yield bookDetailInfo
     #章节数
     def parse_book_chapter_number(self,response):
-        json_body = json.loads(response.body)
-        bookDetailInfo = BookDetailInfo()
-        bookDetailInfo['book_chapter_number'] = json_body.get("data").get("chapterTotalCnt")
-        bookDetailInfo['book_id'] = response.url.split("&")[1][7:]
-        yield bookDetailInfo
+        json_body = json.loads(response.body.decode('utf-8'))
+        if json_body.get('code') == 0:
+            bookDetailInfo = BookDetailInfo()
+            bookDetailInfo['book_chapter_number'] = json_body.get("data").get("chapterTotalCnt")
+            bookDetailInfo['book_id'] = response.url.split("&")[1][7:]
+            yield bookDetailInfo
         
 import pymysql.cursors
 #作者信息爬虫
@@ -235,7 +236,8 @@ class BookAuthorSpider(scrapy.Spider):
     #私有配置项
     custom_settings = {
         'LOG_FILE': 'scrapy.log',
-        'LOG_STDOUT':True
+        'LOG_STDOUT':True,
+        'LOG_LEVEL':'WARNING'
         }
     start_urls = None
     #lua脚本
@@ -251,7 +253,7 @@ class BookAuthorSpider(scrapy.Spider):
     """
     #db初始化
     def connect_mysql_db(self):
-        self.connection = pymysql.connect(host='localhost',
+        self.connection = pymysql.connect(host='127.0.0.1',
                                  user='root',
                                  password='123456',
                                  db='local',
@@ -349,7 +351,8 @@ class bookReaderSpider(scrapy.Spider):
     #私有配置项
     custom_settings = {
         'LOG_FILE': 'scrapy.log',
-        'LOG_STDOUT':True
+        'LOG_STDOUT':True,
+        'LOG_LEVEL':'WARNING'
         }
     start_urls = None
     #lua脚本
@@ -379,9 +382,9 @@ class bookReaderSpider(scrapy.Spider):
         return book_reader_ids_init
     #起始requests
     def start_requests(self):
-        book_reader_ids =  self.init_book_reader_ids
+        book_reader_ids =  self.init_book_reader_ids()
         #读取 读者信息
-        for i in range(book_reader_ids):
+        for i in book_reader_ids:
             #起步url请求 调用splash 渲染js
             yield  scrapy.Request(self.book_reader_info_url + str(i),
                             self.parse_book_reader

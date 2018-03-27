@@ -38,7 +38,7 @@ create table qidian_book_author(
     book_author_address VARCHAR(128) COMMENT '地址'
 );
 
-
+#读者信息详情
 create table qidian_book_reader(
     book_reader_id VARCHAR(128) not null PRIMARY  KEY COMMENT '读者id',
     book_reader_sex VARCHAR(128) COMMENT '性别',
@@ -55,7 +55,7 @@ create table qidian_book_reader(
     book_reader_recommend_number VARCHAR(128) COMMENT '投推荐票数'
 );
 
-
+#付款看书列表
 create table qidian_book_reader_pay_detail(
     book_reader_id VARCHAR(128) not null COMMENT '读者id',
     book_id VARCHAR(128) not null COMMENT '作品id',
