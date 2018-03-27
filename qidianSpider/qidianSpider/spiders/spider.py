@@ -57,44 +57,38 @@ class bookInfoSpider(scrapy.Spider):
                       )
     #首页parse
     def parse_all_book(self, response):
-        
         #下一页
         nextUrl = response.xpath("//a[@class='lbf-pagination-next ']//@href").extract_first()   
-        
         #重试10次操作 
         if nextUrl:
             self.try_again_num = 0
+
+            #页面数+1
+            self.page_num = self.page_num + 1
+            
+            #刮取开始
+            elementSelect = response.xpath("//ul[@class='all-img-list cf']")
+            bookBaseSelects = elementSelect.xpath(".//li")
+            for bookBaseSelect in bookBaseSelects:
+                book_url = bookBaseSelect.xpath(".//div[@class='book-mid-info']//a//@data-bid").extract_first()
+                #书籍详细信息
+                url = self.book_info_base_url + book_url
+                yield scrapy.Request(url,
+                            self.parse_detail_book)
+            #下一页操作
+            nextUrl = "https:" + nextUrl
+            self.logger.warning("nextUrl:"+str(nextUrl))
+            yield  scrapy.Request(nextUrl,
+                            self.parse_all_book) 
         else:
             self.try_again_num = self.try_again_num + 1
             if self.try_again_num > 10:
                 self.logger.warning("*************重试失败链接****************:"+str(response.url))
                 self.logger.warning("当前页面page_num"+str(self.page_num))
-                return
             else:
                 self.logger.warning("*************开始重试****************:"+str(response.url)+",次数:"+str(self.try_again_num))
-                yield scrapy.Request(response.url,
-                        self.parse_all_book)
-                return
-        
-        #页面数+1
-        self.page_num = self.page_num + 1
-        
-        #刮取开始
-        elementSelect = response.xpath("//ul[@class='all-img-list cf']")
-        bookBaseSelects = elementSelect.xpath(".//li")
-        for bookBaseSelect in bookBaseSelects:
-            book_url = bookBaseSelect.xpath(".//div[@class='book-mid-info']//a//@data-bid").extract_first()
-            #书籍详细信息
-            url = self.book_info_base_url + book_url
-            yield scrapy.Request(url,
-                        self.parse_detail_book)
-        
-        
-        if nextUrl:
-            #下一页操作
-            nextUrl = "https:" + nextUrl
-            yield  scrapy.Request(nextUrl,
-                        self.parse_all_book) 
+                yield scrapy.Request(str(response.url),
+                        self.parse_all_book,dont_filter = True)
         #line 命令行测试
         #from scrapy.shell import inspect_response
         #inspect_response(response, self)
@@ -106,7 +100,7 @@ class bookInfoSpider(scrapy.Spider):
         bookTags = BookTags()
         
         csrfToken = str(response.request.headers['Cookie']).split(sep='_csrfToken=')[1][:40]
-        self.logger.warning("Cookie:"+str(response.request.headers['Cookie']))
+        #self.logger.warning("Cookie:"+str(response.request.headers['Cookie']))
         
         book_info_element = response.xpath("//div[@class='book-info ']")
         
@@ -146,8 +140,10 @@ class bookInfoSpider(scrapy.Spider):
     
         #作品页面链接
         bookDetailInfo['book_page_url'] = self.book_info_base_url + book_id
-        
-        str_time = response.xpath("//em[@class='time']//text()").extract_first()[0:2]
+        str_time = response.xpath("//em[@class='time']//text()")
+        if str_time:
+            str_time = str_time.extract_first()[0:2]
+            
         update_time = None
         if str_time == '今天':
             update_time = datetime.datetime.now()
@@ -158,11 +154,14 @@ class bookInfoSpider(scrapy.Spider):
             update_time = datetime.datetime.today() - oneday
             #格式化时间
             update_time = update_time.strftime("%Y-%m-%d") 
-        else:
+        elif str_time:
             update_time = response.xpath("//em[@class='time']//text()").extract_first()   
             if update_time[-3:] == "小时前" or update_time[-3:] == "分钟前":
                 update_time = datetime.datetime.now()
-                update_time = update_time.strftime("%Y-%m-%d") 
+                update_time = update_time.strftime("%Y-%m-%d")
+        else:
+            #去除无更新时间作品  剔除
+            str_time = "2000-01-01"
         #最近更新时间
         bookDetailInfo['book_near_update_time'] = update_time
         #章节数  ----加载缓慢 可能数据丢失

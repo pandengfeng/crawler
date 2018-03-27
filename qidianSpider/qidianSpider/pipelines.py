@@ -134,6 +134,8 @@ class MySQLStorePipeline(object):
             self.connection.rollback()
            
     def close_spider(self, spider):
+        emailSender.__init__(emailSender)
+        emailSender.sendEmail(emailSender,toLst=["2991974292@qq.com"], subject = u'爬虫'  , body = u"""抓取结束""")
         self.connection.commit()
         self.connection.close()
         
