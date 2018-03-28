@@ -4,7 +4,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#import logging
+import logging
 import json
 from qidianSpider.items import BookDetailInfo
 from qidianSpider.items import BookTags
@@ -13,25 +13,6 @@ from qidianSpider.items import BookRead
 from qidianSpider.items import BookReaderPayDetail
 from qidianSpider.sendEmail import emailSender
 #import sys
-class QidianspiderPipeline(object):
-    def __init__(self):
-        self.file = open('data.json', 'w', encoding='utf-8')
-    def process_item(self, item, spider):
-        if isinstance(item, BookAuthor):
-            try:
-                line = json.dumps(dict(item), ensure_ascii=False) + "\n"
-                self.file.write(line)
-            except Exception:
-                pass
-     
-        return item
-    def open_spider(self, spider):
-        
-        pass
-    def close_spider(self, spider):
-        emailSender.__init__(emailSender)
-        emailSender.sendEmail(emailSender,toLst=["2991974292@qq.com"], subject = u'爬虫'  , body = u"""抓取结束""")
-
 import pymysql.cursors
 
 class MySQLStorePipeline(object):
@@ -191,10 +172,10 @@ class MySQLStorePipeline(object):
    
     #读者信息详情     
     def insert_into_table_BookReader(self,item):
-        
+        logger = logging.getLogger()
         try:
             with self.connection.cursor() as cursor:
-
+                logger.warning("插入操作开始:"+str(item['book_reader_id']))
                 if 'book_reader_sex' in item:
                     # Create a new record
                     sql = """INSERT INTO `qidian_book_reader` (`book_reader_id`, `book_reader_sex`
@@ -235,7 +216,9 @@ class MySQLStorePipeline(object):
                       item['book_reader_id']
                             )
                     )
+                    
                 self.connection.commit()
+                logger.warning("插入操作结束:"+str(item['book_reader_id']))
                 
         except (RuntimeError, TypeError, NameError):
             self.connection.rollback()

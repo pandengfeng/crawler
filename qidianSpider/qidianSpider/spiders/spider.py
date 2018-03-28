@@ -20,7 +20,7 @@ import datetime
 #作品信息爬虫
 class bookInfoSpider(scrapy.Spider):
     name = "bookInfoSpider"
-    start_urls = ["https://www.qidian.com/all?page=1&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0"]
+    start_urls = ["https://www.qidian.com/all?orderId=&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0&page=30987"]
     base_url = "https://www.qidian.com"
     book_info_base_url = "https://book.qidian.com/info/"
     
@@ -448,60 +448,65 @@ class bookReaderSpider(scrapy.Spider):
         """
     #粉丝勋章列表
     def parse_reader_fansList_list(self,response):
-        json_body = json.loads(response.body).get("data").get("config")
-        
-        book_reader_id = response.url[49:]
-        for config in json_body:
+        json_body = json.loads(response.body.decode('utf-8'))
+        if json_body.get('code') == 0:
+            json_body = json_body.get("data").get("config")
             
-            yield  scrapy.Request("https://my.qidian.com/ajax/user/FriendFansList?id="+str(book_reader_id)+"&levelId="+str(config.get("levelId")),
-                        self.parse_reader_fansList,
-                      )
+            book_reader_id = response.url[49:]
+            for config in json_body:
+                
+                yield  scrapy.Request("https://my.qidian.com/ajax/user/FriendFansList?id="+str(book_reader_id)+"&levelId="+str(config.get("levelId")),
+                            self.parse_reader_fansList,
+                          )
 
     
     #动态历史数据 json
     def parse_reader_history(self,response):
         bookRead = BookRead()
+        json_body = json.loads(response.body.decode('utf-8'))
         
-        json_body = json.loads(response.body).get("data").get("historyData")
-        
-        bookRead['book_reader_id'] = response.url[49:]
-        #书架收藏
-        bookRead['book_reader_collection_number'] = json_body.get("bshelfCnt")
-        #订阅数
-        bookRead['book_reader_subscribe_number'] = json_body.get("subscribeCnt")
-        #打赏数
-        bookRead['book_reader_exceptional_number'] = json_body.get("donateCnt")
-        #投月票
-        bookRead['book_reader_monthly_ticket_number'] = json_body.get("monthTicketCnt")
-        #投推荐票数
-        bookRead['book_reader_recommend_number'] = json_body.get("rcmTicketCnt")
-        
-        yield bookRead
+        if json_body.get('code') == 0:
+            
+            json_body = json_body.get("data").get("historyData")
+            
+            bookRead['book_reader_id'] = response.url[49:]
+            #书架收藏
+            bookRead['book_reader_collection_number'] = json_body.get("bshelfCnt")
+            #订阅数
+            bookRead['book_reader_subscribe_number'] = json_body.get("subscribeCnt")
+            #打赏数
+            bookRead['book_reader_exceptional_number'] = json_body.get("donateCnt")
+            #投月票
+            bookRead['book_reader_monthly_ticket_number'] = json_body.get("monthTicketCnt")
+            #投推荐票数
+            bookRead['book_reader_recommend_number'] = json_body.get("rcmTicketCnt")
+            
+            yield bookRead
      
     
     #作品
     def parse_reader_fansList(self,response):
-        json_body = json.loads(response.body)
+        json_body = json.loads(response.body.decode('utf-8'))
         
         #line 命令行测试
         #from scrapy.shell import inspect_response
         #inspect_response(response, self)
-
-        bookReaderPayDetail = BookReaderPayDetail()
-        #读者id
-        params = response.url[50:].split('&',1)
-        bookReaderPayDetail['book_reader_id'] = params[0]
-        #粉丝等级
-        bookReaderPayDetail['book_reader_fans_level'] = params[1][8:]
-        
-        
-        if json_body.get("data").get('books'):
-            for book in json_body.get("data").get('books'):
-                #作品id
-                bookReaderPayDetail['book_id'] = book.get("bookId")
-                #作品名称
-                bookReaderPayDetail['book_name'] = book.get("bookName")
-                yield bookReaderPayDetail
+        if json_body.get('code') == 0:
+            bookReaderPayDetail = BookReaderPayDetail()
+            #读者id
+            params = response.url[50:].split('&',1)
+            bookReaderPayDetail['book_reader_id'] = params[0]
+            #粉丝等级
+            bookReaderPayDetail['book_reader_fans_level'] = params[1][8:]
+            
+            
+            if json_body.get("data").get('books'):
+                for book in json_body.get("data").get('books'):
+                    #作品id
+                    bookReaderPayDetail['book_id'] = book.get("bookId")
+                    #作品名称
+                    bookReaderPayDetail['book_name'] = book.get("bookName")
+                    yield bookReaderPayDetail
        
 """
 
